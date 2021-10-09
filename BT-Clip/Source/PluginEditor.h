@@ -52,6 +52,9 @@ private:
     
     /**Image background*/
     juce::Image pluginBackground;
+    
+    /**Clean Memory*/
+    void clean_memory();
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (BTClipAudioProcessorEditor)
 };

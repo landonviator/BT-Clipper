@@ -21,10 +21,7 @@ BTClipAudioProcessorEditor::BTClipAudioProcessorEditor (BTClipAudioProcessor& p)
 
 BTClipAudioProcessorEditor::~BTClipAudioProcessorEditor()
 {
-    for (auto i {0}; i < sliders.size(); i++)
-    {
-        sliders[i]->setLookAndFeel(nullptr);
-    }
+    clean_memory();
 }
 
 //==============================================================================

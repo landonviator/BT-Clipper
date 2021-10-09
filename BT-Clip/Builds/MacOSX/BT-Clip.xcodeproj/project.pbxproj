@@ -68,6 +68,7 @@
 		ED1B4BE641E796DAF2C5DC3B /* include_juce_audio_utils.mm */ = {isa = PBXBuildFile; fileRef = 6CF6FE6AABAE327B6F359D59; };
 		F097B1D5DA85F494DA8B3C3D /* include_juce_dsp.mm */ = {isa = PBXBuildFile; fileRef = A0A73F84D103177291CBD33F; };
 		F4391180BEF3350C92A70D34 /* include_juce_gui_basics.mm */ = {isa = PBXBuildFile; fileRef = 8703E83D40D946CE0D47F6BE; };
+		FDB9E99C87FD4BB9619FBF4F /* CleanMemory.cpp */ = {isa = PBXBuildFile; fileRef = 153CC67AB19C6F978BCDF334; };
 		FE63988C294511C616CDB3D3 /* RecentFilesMenuTemplate.nib */ = {isa = PBXBuildFile; fileRef = 8C787575BFC1628E6C950C5C; };
 /* End PBXBuildFile section */
 
@@ -75,6 +76,7 @@
 		038E3B825A48E20DA9E79FDB /* InitLabels.cpp */ /* InitLabels.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = InitLabels.cpp; path = ../../Source/InitLabels.cpp; sourceTree = SOURCE_ROOT; };
 		0B88094E5CE24755CE8E8ECF /* AudioUnit.framework */ /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = System/Library/Frameworks/AudioUnit.framework; sourceTree = SDKROOT; };
 		13AB1E28621F82CB4AAE09F1 /* include_juce_audio_plugin_client_VST3.cpp */ /* include_juce_audio_plugin_client_VST3.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = include_juce_audio_plugin_client_VST3.cpp; path = ../../JuceLibraryCode/include_juce_audio_plugin_client_VST3.cpp; sourceTree = SOURCE_ROOT; };
+		153CC67AB19C6F978BCDF334 /* CleanMemory.cpp */ /* CleanMemory.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CleanMemory.cpp; path = ../../Source/CleanMemory.cpp; sourceTree = SOURCE_ROOT; };
 		1C9BE502B8218E2EA37CB50C /* include_juce_audio_processors.mm */ /* include_juce_audio_processors.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = include_juce_audio_processors.mm; path = ../../JuceLibraryCode/include_juce_audio_processors.mm; sourceTree = SOURCE_ROOT; };
 		1FA04EAAA258D0EA85FE1CFC /* AudioToolbox.framework */ /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		244765B194D76134E83119CC /* juce_audio_formats */ /* juce_audio_formats */ = {isa = PBXFileReference; lastKnownFileType = folder; name = juce_audio_formats; path = /Users/land00m/Documents/GitHub/JUCE/modules/juce_audio_formats; sourceTree = "<absolute>"; };
@@ -212,6 +214,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		00C74A33FB2825BD1A0463C8 /* Clean Up */ = {
+			isa = PBXGroup;
+			children = (
+				153CC67AB19C6F978BCDF334,
+			);
+			name = "Clean Up";
+			sourceTree = "<group>";
+		};
 		10AA2D99F2EAB7E01AE1E0B8 /* Source */ = {
 			isa = PBXGroup;
 			children = (
@@ -285,6 +295,7 @@
 		49BBDFC8FB692D54858B77C1 /* BT-Clip */ = {
 			isa = PBXGroup;
 			children = (
+				00C74A33FB2825BD1A0463C8,
 				38EC11530A51D7432FAAED4E,
 				82710B4A66B412431468B11C,
 				8F0D9C8888C399F32A34CB3B,
@@ -656,6 +667,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDB9E99C87FD4BB9619FBF4F,
 				B4001EA427B3EF2B7847473A,
 				01F9A42AD670CC22CF262067,
 				50D08BE4D2CE4F1F035A6D74,

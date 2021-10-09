@@ -4,6 +4,9 @@
               addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1" companyName="Viator DSP"
               pluginName="BT Clip">
   <MAINGROUP id="Yz13QN" name="BT-Clip">
+    <GROUP id="{345761D5-32E7-105F-5E2B-FBE82A9E5826}" name="Clean Up">
+      <FILE id="pd4CVa" name="CleanMemory.cpp" compile="1" resource="0" file="Source/CleanMemory.cpp"/>
+    </GROUP>
     <GROUP id="{7D35807E-BC98-E69F-921C-D42FF20200D8}" name="Labels">
       <FILE id="DATXoi" name="InitLabels.cpp" compile="1" resource="0" file="Source/InitLabels.cpp"/>
     </GROUP>
