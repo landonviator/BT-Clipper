@@ -11,6 +11,7 @@
 #include <JuceHeader.h>
 #include "PluginProcessor.h"
 #include "LV_Dial.h"
+#include "LV_Label.h"
 #include "StyleSheet.h"
 
 //==============================================================================
@@ -39,8 +40,15 @@ private:
     juce::LV_Dial m_QDial {" Q", 0.05, 0.95, 0.05, 0.3};
     juce::LV_Dial m_DriveDial {" dB", 0.0, 24.0, 0.25, 0.0};
     std::vector<juce::Slider*> sliders {&m_CutoffDial, &m_QDial, &m_DriveDial};
+    void init_dials();
     juce::LV_AlphaDialLAF customDial;
     
+    /**Labels*/
+    juce::LV_Label m_CutoffLabel {"Cutoff"};
+    juce::LV_Label m_QLabel {"Width"};
+    juce::LV_Label m_DriveLabel {"Drive"};
+    std::vector<juce::Label*> labels {&m_CutoffLabel, &m_QLabel, &m_DriveLabel};
+    void init_labels();
     
     /**Image background*/
     juce::Image pluginBackground;

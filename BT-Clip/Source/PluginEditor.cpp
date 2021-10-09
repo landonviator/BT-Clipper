@@ -15,11 +15,8 @@ BTClipAudioProcessorEditor::BTClipAudioProcessorEditor (BTClipAudioProcessor& p)
 {
     setUpWindow(audioProcessor);
     
-    for (auto i {0}; i < sliders.size(); i++)
-    {
-        addAndMakeVisible(sliders[i]);
-        sliders[i]->setLookAndFeel(&customDial);
-    }
+    init_dials();
+    init_labels();
 }
 
 BTClipAudioProcessorEditor::~BTClipAudioProcessorEditor()

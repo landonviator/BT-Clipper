@@ -4,6 +4,12 @@
               addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1" companyName="Viator DSP"
               pluginName="BT Clip">
   <MAINGROUP id="Yz13QN" name="BT-Clip">
+    <GROUP id="{7D35807E-BC98-E69F-921C-D42FF20200D8}" name="Labels">
+      <FILE id="DATXoi" name="InitLabels.cpp" compile="1" resource="0" file="Source/InitLabels.cpp"/>
+    </GROUP>
+    <GROUP id="{FD07ECCD-6FB0-8D7E-6882-6DBD1785442F}" name="Sliders">
+      <FILE id="LlEeFc" name="InitSliders.cpp" compile="1" resource="0" file="Source/InitSliders.cpp"/>
+    </GROUP>
     <GROUP id="{E0FCBD58-8D8D-89D0-2D6B-B2FCF0024865}" name="Window">
       <FILE id="WMZlpu" name="CreateWindow.cpp" compile="1" resource="0"
             file="Source/CreateWindow.cpp"/>
