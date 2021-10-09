@@ -35,6 +35,7 @@
 		338B8CF2311719CC652DE3E2 /* include_juce_events.mm */ = {isa = PBXBuildFile; fileRef = A2BB936FA82AAA23B9BFC137; };
 		3B38E98037D2A36EEB17A931 /* include_juce_audio_formats.mm */ = {isa = PBXBuildFile; fileRef = B2DF4D65C37B30C3A18FEC88; };
 		4F4B13CB59C40574583D5B68 /* AudioToolbox.framework */ = {isa = PBXBuildFile; fileRef = 1FA04EAAA258D0EA85FE1CFC; };
+		50D08BE4D2CE4F1F035A6D74 /* CreateWindow.cpp */ = {isa = PBXBuildFile; fileRef = 2B5C0A0B77534D1644759A9A; };
 		51E3CD632D58576373C84849 /* BinaryData2.cpp */ = {isa = PBXBuildFile; fileRef = 59D94EDA6A14B4431DCFBE75; };
 		576DB92B7A531F7300B0E570 /* include_juce_audio_devices.mm */ = {isa = PBXBuildFile; fileRef = F2CF8CF5A8ED8C25EC442A1B; };
 		58A4C90662F73BD18DB6A9C2 /* CoreMIDI.framework */ = {isa = PBXBuildFile; fileRef = D9FA6117BA73704DCBB50CA7; };
@@ -75,6 +76,7 @@
 		1FA04EAAA258D0EA85FE1CFC /* AudioToolbox.framework */ /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		244765B194D76134E83119CC /* juce_audio_formats */ /* juce_audio_formats */ = {isa = PBXFileReference; lastKnownFileType = folder; name = juce_audio_formats; path = /Users/land00m/Documents/GitHub/JUCE/modules/juce_audio_formats; sourceTree = "<absolute>"; };
 		257CDA77270269B639034B44 /* DiscRecording.framework */ /* DiscRecording.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DiscRecording.framework; path = System/Library/Frameworks/DiscRecording.framework; sourceTree = SDKROOT; };
+		2B5C0A0B77534D1644759A9A /* CreateWindow.cpp */ /* CreateWindow.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CreateWindow.cpp; path = ../../Source/CreateWindow.cpp; sourceTree = SOURCE_ROOT; };
 		2BB4F7DE6F6AEC5B5C240587 /* CoreAudio.framework */ /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		2D4EEADD16BF9C35B635FF44 /* juce_audio_basics */ /* juce_audio_basics */ = {isa = PBXFileReference; lastKnownFileType = folder; name = juce_audio_basics; path = /Users/land00m/Documents/GitHub/JUCE/modules/juce_audio_basics; sourceTree = "<absolute>"; };
 		34DEA8AEEA28E13BDADE235A /* pluginBackground2.png */ /* pluginBackground2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pluginBackground2.png; path = ../../Source/Assets/pluginBackground2.png; sourceTree = SOURCE_ROOT; };
@@ -271,15 +273,10 @@
 		49BBDFC8FB692D54858B77C1 /* BT-Clip */ = {
 			isa = PBXGroup;
 			children = (
+				8F0D9C8888C399F32A34CB3B,
+				7B74F010779A299096FFEBA0,
 				DB968D0199B4A4D859041745,
 				10AA2D99F2EAB7E01AE1E0B8,
-				42E2C640015BFC3CFA3B117B,
-				B33611F8E86FAA849449FA67,
-				C0A4ED386D67E806C333346C,
-				D43843AF5DE9917267BDC04F,
-				A7F80A64B8F4ECF2DB4D3E34,
-				94BEBD3C954C4C547894F612,
-				82B7D936CCD21607E16484D4,
 			);
 			name = "BT-Clip";
 			sourceTree = "<group>";
@@ -293,6 +290,28 @@
 				CDC88096261FE569E6956AF9,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		7B74F010779A299096FFEBA0 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				42E2C640015BFC3CFA3B117B,
+				B33611F8E86FAA849449FA67,
+				C0A4ED386D67E806C333346C,
+				D43843AF5DE9917267BDC04F,
+				A7F80A64B8F4ECF2DB4D3E34,
+				94BEBD3C954C4C547894F612,
+				82B7D936CCD21607E16484D4,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		8F0D9C8888C399F32A34CB3B /* Window */ = {
+			isa = PBXGroup;
+			children = (
+				2B5C0A0B77534D1644759A9A,
+			);
+			name = Window;
 			sourceTree = "<group>";
 		};
 		B7E398F46BC2EEE8F2133E9C /* Source */ = {
@@ -615,9 +634,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50D08BE4D2CE4F1F035A6D74,
+				22E9E62121D7AED04047AAF9,
 				751CB40F381FDE3D8EAD8509,
 				DEC7752B398FD50FEA7EAA6F,
-				22E9E62121D7AED04047AAF9,
 				D24F76620D1D25547A868A6E,
 				51E3CD632D58576373C84849,
 				06E385354F0079517C40C999,

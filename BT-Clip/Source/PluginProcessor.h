@@ -52,6 +52,28 @@ public:
     //==============================================================================
     void getStateInformation (juce::MemoryBlock& destData) override;
     void setStateInformation (const void* data, int sizeInBytes) override;
+    
+    /**Value Trees*/
+    juce::AudioProcessorValueTreeState treeState;
+    
+    juce::ValueTree variableTree
+    { "Variables", {},
+      {
+        { "Group", {{ "name", "RMS Vars" }},
+          {
+              { "Parameter", {{ "id", "width" }, { "value", 0.0 }}},
+                { "Parameter", {{ "id", "height" }, { "value", 0.0 }}}
+          }
+        }
+      }
+    };
+    
+    /**Parameters*/
+    juce::AudioProcessorValueTreeState::ParameterLayout createParameterLayout();
+    
+    /**Window Vars*/
+    float m_WindowWidth {0.0f};
+    float m_WindowHeight {0.0f};
 
 private:
     //==============================================================================

@@ -3,6 +3,20 @@
 <JUCERPROJECT id="b2Pl57" name="BT-Clip" projectType="audioplug" useAppConfig="0"
               addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1">
   <MAINGROUP id="Yz13QN" name="BT-Clip">
+    <GROUP id="{E0FCBD58-8D8D-89D0-2D6B-B2FCF0024865}" name="Window">
+      <FILE id="WMZlpu" name="CreateWindow.cpp" compile="1" resource="0"
+            file="Source/CreateWindow.cpp"/>
+    </GROUP>
+    <GROUP id="{DC06E8DE-17BB-1FE8-4AEB-4E99B6358965}" name="UI">
+      <FILE id="hsh7sp" name="LV_Dial.h" compile="0" resource="0" file="Source/LV_Dial.h"/>
+      <FILE id="cf2fGj" name="LV_Fader.h" compile="0" resource="0" file="Source/LV_Fader.h"/>
+      <FILE id="E4x6eE" name="LV_GroupComponent.h" compile="0" resource="0"
+            file="Source/LV_GroupComponent.h"/>
+      <FILE id="YjHP7s" name="LV_Label.h" compile="0" resource="0" file="Source/LV_Label.h"/>
+      <FILE id="mG1iMO" name="LV_Toggle.h" compile="0" resource="0" file="Source/LV_Toggle.h"/>
+      <FILE id="kNkF7O" name="StyleSheet.cpp" compile="1" resource="0" file="Source/StyleSheet.cpp"/>
+      <FILE id="BJ7EbA" name="StyleSheet.h" compile="0" resource="0" file="Source/StyleSheet.h"/>
+    </GROUP>
     <GROUP id="{4E48EEC2-1CEE-BDAA-53AC-0D373FD9AD68}" name="Assets">
       <FILE id="ElBntp" name="landon55-03.png" compile="0" resource="1" file="Source/Assets/landon55-03.png"/>
       <FILE id="j4ymfF" name="landon55-04.png" compile="0" resource="1" file="Source/Assets/landon55-04.png"/>
@@ -20,14 +34,6 @@
             file="Source/PluginEditor.cpp"/>
       <FILE id="AbnWvq" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
     </GROUP>
-    <FILE id="hsh7sp" name="LV_Dial.h" compile="0" resource="0" file="Source/LV_Dial.h"/>
-    <FILE id="cf2fGj" name="LV_Fader.h" compile="0" resource="0" file="Source/LV_Fader.h"/>
-    <FILE id="E4x6eE" name="LV_GroupComponent.h" compile="0" resource="0"
-          file="Source/LV_GroupComponent.h"/>
-    <FILE id="YjHP7s" name="LV_Label.h" compile="0" resource="0" file="Source/LV_Label.h"/>
-    <FILE id="mG1iMO" name="LV_Toggle.h" compile="0" resource="0" file="Source/LV_Toggle.h"/>
-    <FILE id="kNkF7O" name="StyleSheet.cpp" compile="1" resource="0" file="Source/StyleSheet.cpp"/>
-    <FILE id="BJ7EbA" name="StyleSheet.h" compile="0" resource="0" file="Source/StyleSheet.h"/>
   </MAINGROUP>
   <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_VST3_CAN_REPLACE_VST2="0"/>
   <EXPORTFORMATS>

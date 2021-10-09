@@ -15,17 +15,40 @@ BTClipAudioProcessor::BTClipAudioProcessor()
      : AudioProcessor (BusesProperties()
                      #if ! JucePlugin_IsMidiEffect
                       #if ! JucePlugin_IsSynth
-                       .withInput  ("Input",  juce::AudioChannelSet::stereo(), true)
+                       .withInput  ("Input",  juce::AudioChannelSet::stereo(), false)
                       #endif
-                       .withOutput ("Output", juce::AudioChannelSet::stereo(), true)
+                       .withOutput ("Output", juce::AudioChannelSet::stereo(), false)
                      #endif
-                       )
+                       ),
+treeState (*this, nullptr, "PARAMETER", createParameterLayout())
 #endif
 {
 }
 
 BTClipAudioProcessor::~BTClipAudioProcessor()
 {
+}
+
+juce::AudioProcessorValueTreeState::ParameterLayout BTClipAudioProcessor::createParameterLayout()
+{
+    std::vector <std::unique_ptr<juce::RangedAudioParameter>> params;
+
+    // Make sure to update the number of reservations after adding params
+    params.reserve(5);
+
+//    auto pPreamp = std::make_unique<juce::AudioParameterFloat>(preampSliderId, preampSliderName, -100.0f, 100.0f, 0.0f);
+//    auto pPhase = std::make_unique<juce::AudioParameterBool>(phaseId, phaseName, false);
+//    auto pReset = std::make_unique<juce::AudioParameterBool>(listenId, listenName, false);
+//    auto pStageType = std::make_unique<juce::AudioParameterInt>(stageTypeId, stageTypeName, 0, 1, 0);
+//    auto pCalibration = std::make_unique<juce::AudioParameterInt>(calibrationId, calibrationName, 0, 3, 0);
+//
+//    params.push_back(std::move(pPreamp));
+//    params.push_back(std::move(pPhase));
+//    params.push_back(std::move(pReset));
+//    params.push_back(std::move(pStageType));
+//    params.push_back(std::move(pCalibration));
+
+   return { params.begin(), params.end() };
 }
 
 //==============================================================================
@@ -172,15 +195,23 @@ juce::AudioProcessorEditor* BTClipAudioProcessor::createEditor()
 //==============================================================================
 void BTClipAudioProcessor::getStateInformation (juce::MemoryBlock& destData)
 {
-    // You should use this method to store your parameters in the memory block.
-    // You could do that either as raw data, or use the XML or ValueTree classes
-    // as intermediaries to make it easy to save and load complex data.
+    treeState.state.appendChild(variableTree, nullptr);
+
+    juce::MemoryOutputStream stream(destData, false);
+    
+    treeState.state.writeToStream (stream);
 }
 
 void BTClipAudioProcessor::setStateInformation (const void* data, int sizeInBytes)
 {
-    // You should use this method to restore your parameters from this memory block,
-    // whose contents will have been created by the getStateInformation() call.
+    auto tree = juce::ValueTree::readFromData (data, size_t(sizeInBytes));
+    
+    variableTree = tree.getChildWithName("Variables");
+    
+    treeState.state = tree;
+    
+    m_WindowWidth = variableTree.getProperty("width");
+    m_WindowHeight = variableTree.getProperty("height");
 }
 
 //==============================================================================

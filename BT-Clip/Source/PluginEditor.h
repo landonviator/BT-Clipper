@@ -25,9 +25,12 @@ public:
     void resized() override;
 
 private:
-    // This reference is provided as a quick way for your editor to
-    // access the processor object that created it.
+
     BTClipAudioProcessor& audioProcessor;
+    void setUpWindow(BTClipAudioProcessor &audioProcessor);
+    
+    /**Bug with the resized function finishing before the constructor, this bool helps fix it*/
+    bool constructorFinished = false;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (BTClipAudioProcessorEditor)
 };
