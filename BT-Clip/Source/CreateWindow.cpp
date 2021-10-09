@@ -10,7 +10,7 @@
 
 #include "PluginEditor.h"
 
-void BTClipAudioProcessorEditor::setUpWindow(BTClipAudioProcessor &audioProcessor)
+void BTClipAudioProcessorEditor::set_up_window(BTClipAudioProcessor &audioProcessor)
 {
     // Grab the window instance and create a rectangle
     juce::Rectangle<int> r = juce::Desktop::getInstance().getDisplays().getPrimaryDisplay()->userArea;

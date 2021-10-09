@@ -30,7 +30,7 @@ public:
 private:
 
     BTClipAudioProcessor& audioProcessor;
-    void setUpWindow(BTClipAudioProcessor &audioProcessor);
+    void set_up_window(BTClipAudioProcessor &audioProcessor);
     
     /**Bug with the resized function finishing before the constructor, this bool helps fix it*/
     bool constructorFinished = false;

@@ -13,7 +13,7 @@
 BTClipAudioProcessorEditor::BTClipAudioProcessorEditor (BTClipAudioProcessor& p)
     : AudioProcessorEditor (&p), audioProcessor (p)
 {
-    setUpWindow(audioProcessor);
+    set_up_window(audioProcessor);
     
     init_dials();
     init_labels();
