@@ -14,6 +14,8 @@ BTClipAudioProcessorEditor::BTClipAudioProcessorEditor (BTClipAudioProcessor& p)
     : AudioProcessorEditor (&p), audioProcessor (p)
 {
     setUpWindow(audioProcessor);
+    
+    addAndMakeVisible(m_CutoffDial);
 }
 
 BTClipAudioProcessorEditor::~BTClipAudioProcessorEditor()
@@ -33,6 +35,8 @@ void BTClipAudioProcessorEditor::paint (juce::Graphics& g)
 
 void BTClipAudioProcessorEditor::resized()
 {
+    m_CutoffDial.setBounds(getLocalBounds());
+    
     // Save plugin size in value tree
     audioProcessor.variableTree.setProperty("width", getWidth(), nullptr);
     audioProcessor.variableTree.setProperty("height", getHeight(), nullptr);
