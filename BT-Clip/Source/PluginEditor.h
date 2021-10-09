@@ -50,8 +50,15 @@ private:
     std::vector<juce::Label*> labels {&m_CutoffLabel, &m_QLabel, &m_DriveLabel};
     void init_labels();
     
+    /**Position Components*/
+    void position_components();
+    
+    /**Save Window Size*/
+    void save_window_size();
+    
     /**Image background*/
     juce::Image pluginBackground;
+    void paint_background(juce::Graphics &g);
     
     /**Clean Memory*/
     void clean_memory();

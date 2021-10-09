@@ -14,8 +14,11 @@
       <FILE id="LlEeFc" name="InitSliders.cpp" compile="1" resource="0" file="Source/InitSliders.cpp"/>
     </GROUP>
     <GROUP id="{E0FCBD58-8D8D-89D0-2D6B-B2FCF0024865}" name="Window">
+      <FILE id="lMXVVH" name="Background.cpp" compile="1" resource="0" file="Source/Background.cpp"/>
       <FILE id="WMZlpu" name="CreateWindow.cpp" compile="1" resource="0"
             file="Source/CreateWindow.cpp"/>
+      <FILE id="zU7ViI" name="PositionComponents.cpp" compile="1" resource="0"
+            file="Source/PositionComponents.cpp"/>
     </GROUP>
     <GROUP id="{DC06E8DE-17BB-1FE8-4AEB-4E99B6358965}" name="UI">
       <FILE id="hsh7sp" name="LV_Dial.h" compile="0" resource="0" file="Source/LV_Dial.h"/>
