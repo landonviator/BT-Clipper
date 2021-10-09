@@ -12,6 +12,7 @@
 #include "PluginProcessor.h"
 #include "LV_Dial.h"
 #include "LV_Label.h"
+#include "LV_Toggle.h"
 #include "StyleSheet.h"
 
 //==============================================================================
@@ -49,6 +50,11 @@ private:
     juce::LV_Label m_DriveLabel {"Drive"};
     std::vector<juce::Label*> labels {&m_CutoffLabel, &m_QLabel, &m_DriveLabel};
     void init_labels();
+    
+    /**Toggles*/
+    juce::LV_Toggle m_PrePostToggle;
+    juce::LV_Toggle m_Phase;
+    void init_toggles();
     
     /**Position Components*/
     void position_components();

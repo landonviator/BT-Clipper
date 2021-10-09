@@ -30,4 +30,6 @@ void BTClipAudioProcessorEditor::position_components()
             sliders[i]->setBounds(sliders[i-1]->getX() + sliders[i-1]->getWidth(), l_TopMargin, l_DialSize, l_DialSize);
         }
     }
+    
+    m_PrePostToggle.setBounds(m_CutoffDial.getX(), m_CutoffDial.getY() + m_CutoffDial.getHeight() + 24.0, m_CutoffDial.getWidth(), m_CutoffDial.getHeight() / 4.0);
 }

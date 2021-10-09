@@ -67,6 +67,7 @@
 		DBCFC261E3990C26F183A5C7 /* Carbon.framework */ = {isa = PBXBuildFile; fileRef = D29AA00DF4F276B6BBEDAF27; };
 		DDD9B26260BE65827FC79AEA /* AudioUnit.framework */ = {isa = PBXBuildFile; fileRef = 0B88094E5CE24755CE8E8ECF; };
 		DEC7752B398FD50FEA7EAA6F /* PluginEditor.cpp */ = {isa = PBXBuildFile; fileRef = 44082B71AE9A84973163ACFA; };
+		EB73AF3B8AECA1DDD262F741 /* InitToggles.cpp */ = {isa = PBXBuildFile; fileRef = 45613DEF8D352F28089CBCF7; };
 		ED1B4BE641E796DAF2C5DC3B /* include_juce_audio_utils.mm */ = {isa = PBXBuildFile; fileRef = 6CF6FE6AABAE327B6F359D59; };
 		F097B1D5DA85F494DA8B3C3D /* include_juce_dsp.mm */ = {isa = PBXBuildFile; fileRef = A0A73F84D103177291CBD33F; };
 		F4391180BEF3350C92A70D34 /* include_juce_gui_basics.mm */ = {isa = PBXBuildFile; fileRef = 8703E83D40D946CE0D47F6BE; };
@@ -90,6 +91,7 @@
 		3C1EC87A32C782D2757B0D28 /* include_juce_core.mm */ /* include_juce_core.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = include_juce_core.mm; path = ../../JuceLibraryCode/include_juce_core.mm; sourceTree = SOURCE_ROOT; };
 		42E2C640015BFC3CFA3B117B /* LV_Dial.h */ /* LV_Dial.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LV_Dial.h; path = ../../Source/LV_Dial.h; sourceTree = SOURCE_ROOT; };
 		44082B71AE9A84973163ACFA /* PluginEditor.cpp */ /* PluginEditor.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = PluginEditor.cpp; path = ../../Source/PluginEditor.cpp; sourceTree = SOURCE_ROOT; };
+		45613DEF8D352F28089CBCF7 /* InitToggles.cpp */ /* InitToggles.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = InitToggles.cpp; path = ../../Source/InitToggles.cpp; sourceTree = SOURCE_ROOT; };
 		4D387FC9A2F8446F379D7B5E /* PluginProcessor.h */ /* PluginProcessor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PluginProcessor.h; path = ../../Source/PluginProcessor.h; sourceTree = SOURCE_ROOT; };
 		4DD53D7D1003FF3318A4E797 /* IOKit.framework */ /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		4F76D43212427074928CC451 /* landon55-04.png */ /* landon55-04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "landon55-04.png"; path = "../../Source/Assets/landon55-04.png"; sourceTree = SOURCE_ROOT; };
@@ -299,6 +301,7 @@
 		49BBDFC8FB692D54858B77C1 /* BT-Clip */ = {
 			isa = PBXGroup;
 			children = (
+				95EECBE54CC1890A4C09B9D7,
 				00C74A33FB2825BD1A0463C8,
 				38EC11530A51D7432FAAED4E,
 				82710B4A66B412431468B11C,
@@ -351,6 +354,14 @@
 				E38E2712162DB0BB4FACF634,
 			);
 			name = Window;
+			sourceTree = "<group>";
+		};
+		95EECBE54CC1890A4C09B9D7 /* Toggles */ = {
+			isa = PBXGroup;
+			children = (
+				45613DEF8D352F28089CBCF7,
+			);
+			name = Toggles;
 			sourceTree = "<group>";
 		};
 		B7E398F46BC2EEE8F2133E9C /* Source */ = {
@@ -673,6 +684,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB73AF3B8AECA1DDD262F741,
 				FDB9E99C87FD4BB9619FBF4F,
 				B4001EA427B3EF2B7847473A,
 				01F9A42AD670CC22CF262067,

@@ -14,9 +14,9 @@ BTClipAudioProcessorEditor::BTClipAudioProcessorEditor (BTClipAudioProcessor& p)
     : AudioProcessorEditor (&p), audioProcessor (p)
 {
     set_up_window(audioProcessor);
-    
     init_dials();
     init_labels();
+    init_toggles();
 }
 
 BTClipAudioProcessorEditor::~BTClipAudioProcessorEditor()
@@ -32,7 +32,6 @@ void BTClipAudioProcessorEditor::paint (juce::Graphics& g)
 
 void BTClipAudioProcessorEditor::resized()
 {
-
     position_components();
     save_window_size();
 }
