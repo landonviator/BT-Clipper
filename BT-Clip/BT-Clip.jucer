@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <JUCERPROJECT id="b2Pl57" name="BT-Clip" projectType="audioplug" useAppConfig="0"
-              addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1">
+              addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1" companyName="Viator DSP"
+              pluginName="BT Clip">
   <MAINGROUP id="Yz13QN" name="BT-Clip">
     <GROUP id="{E0FCBD58-8D8D-89D0-2D6B-B2FCF0024865}" name="Window">
       <FILE id="WMZlpu" name="CreateWindow.cpp" compile="1" resource="0"

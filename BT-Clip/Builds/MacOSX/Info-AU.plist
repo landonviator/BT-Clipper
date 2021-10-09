@@ -8,7 +8,7 @@
     <key>CFBundleIconFile</key>
     <string></string>
     <key>CFBundleIdentifier</key>
-    <string>com.yourcompany.BTClip</string>
+    <string>com.ViatorDSP.BTClip</string>
     <key>CFBundleName</key>
     <string>BT-Clip</string>
     <key>CFBundleDisplayName</key>
@@ -29,7 +29,7 @@
     <array>
       <dict>
         <key>name</key>
-        <string>yourcompany: BT-Clip</string>
+        <string>Viator DSP: BT Clip</string>
         <key>description</key>
         <string>BT-Clip</string>
         <key>factoryFunction</key>
