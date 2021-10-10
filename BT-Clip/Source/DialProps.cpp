@@ -1,8 +1,8 @@
 /*
   ==============================================================================
 
-    InitToggles.cpp
-    Created: 9 Oct 2021 2:40:08am
+    DialProps.cpp
+    Created: 10 Oct 2021 1:17:47pm
     Author:  Landon Viator
 
   ==============================================================================
@@ -10,12 +10,7 @@
 
 #include "PluginEditor.h"
 
-
-
-void BTClipAudioProcessorEditor::init_toggles()
+void BTClipAudioProcessorEditor::set_dial_props()
 {
-    addAndMakeVisible(m_PrePostToggle);
-    addAndMakeVisible(m_Phase);
-    
-    set_pre_post_toggle_props();
+    m_CutoffDial.setSkewFactorFromMidPoint(1000.0);
 }

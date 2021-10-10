@@ -84,7 +84,7 @@ void LV_FaderLAF::drawLinearSlider (Graphics& g, int x, int y, int width, int he
         auto isTwoVal   = (style == Slider::SliderStyle::TwoValueVertical   || style == Slider::SliderStyle::TwoValueHorizontal);
         auto isThreeVal = (style == Slider::SliderStyle::ThreeValueVertical || style == Slider::SliderStyle::ThreeValueHorizontal);
 
-        auto trackWidth = jmin (6.0f, slider.isHorizontal() ? (float) height * 0.25f : (float) width * 0.25f);
+        auto trackWidth = jmin (9.0f, slider.isHorizontal() ? (float) height * 0.25f : (float) width * 0.25f);
 
         Point<float> startPoint (slider.isHorizontal() ? (float) x : (float) x + (float) width * 0.5f,
                                  slider.isHorizontal() ? (float) y + (float) height * 0.5f : (float) (height + y));
@@ -130,7 +130,7 @@ void LV_FaderLAF::drawLinearSlider (Graphics& g, int x, int y, int width, int he
         if (! isTwoVal)
         {
             Rectangle<float> thumbRec;
-            thumbRec.setSize(static_cast<float> (height / 5.0), static_cast<float> (height / 10.0));
+            thumbRec.setSize(static_cast<float> (height / 3.0), static_cast<float> (height / 8.0));
             
             g.setColour (Colour::fromRGB(120,121,118).darker(0.25));
             g.fillRoundedRectangle(thumbRec.withCentre(isThreeVal ? thumbPoint : maxPoint), 4.0f);

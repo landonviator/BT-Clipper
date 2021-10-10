@@ -18,15 +18,15 @@ class LV_Fader : public Slider
 {
 public:
     
-    LV_Fader()
+    LV_Fader(juce::String suffix, double rangeStart, double rangeEnd, double intervalValue, double returnValue)
     {
         setSliderStyle(juce::Slider::SliderStyle::LinearVertical);
         setTextBoxStyle(juce::Slider::TextBoxBelow, true, 72, 32);
-        setRange(-24.0, 24.0, 0.25);
-        setDoubleClickReturnValue(true, 0.0);
-        setTextValueSuffix(" dB");
-        setColour(juce::Slider::ColourIds::backgroundColourId, juce::Colour::fromRGB(15, 15, 15));
-        setColour(juce::Slider::ColourIds::trackColourId, juce::Colour::fromRGB(15, 15, 15));
+        setRange(rangeStart, rangeEnd, intervalValue);
+        setDoubleClickReturnValue(true, returnValue);
+        setTextValueSuffix(suffix);
+        setColour(juce::Slider::ColourIds::backgroundColourId, juce::Colours::black.withAlpha(0.35f));
+        setColour(juce::Slider::ColourIds::trackColourId, juce::Colours::black.withAlpha(0.0f));
         setColour(juce::Slider::ColourIds::textBoxOutlineColourId, juce::Colours::black.withAlpha(0.0f));
         setColour(juce::Slider::ColourIds::textBoxTextColourId, juce::Colours::whitesmoke.withAlpha(0.25f));
     }

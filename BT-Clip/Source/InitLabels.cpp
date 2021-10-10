@@ -16,4 +16,7 @@ void BTClipAudioProcessorEditor::init_labels()
     {
         labels[i]->attachToComponent(sliders[i], false);
     }
+    
+    m_InputLabel.attachToComponent(&m_InputSlider, false);
+    m_OutputLabel.attachToComponent(&m_OutputSlider, false);
 }

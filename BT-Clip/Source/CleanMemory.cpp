@@ -16,4 +16,7 @@ void BTClipAudioProcessorEditor::clean_memory()
     {
         sliders[i]->setLookAndFeel(nullptr);
     }
+    
+    m_InputSlider.setLookAndFeel(nullptr);
+    m_OutputSlider.setLookAndFeel(nullptr);
 }

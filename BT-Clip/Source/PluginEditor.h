@@ -14,6 +14,8 @@
 #include "LV_Label.h"
 #include "LV_Toggle.h"
 #include "StyleSheet.h"
+#include "LV_Menu.h"
+#include "LV_Fader.h"
 
 //==============================================================================
 /**
@@ -36,25 +38,42 @@ private:
     /**Bug with the resized function finishing before the constructor, this bool helps fix it*/
     bool constructorFinished = false;
     
+    /**Sliders*/
+    juce::LV_Fader m_InputSlider {" dB", -24.0, 24.0, 0.25, 0.0};
+    juce::LV_Fader m_OutputSlider {" dB", -24.0, 24.0, 0.25, 0.0};
+    juce::LV_FaderLAF customSlider;
+    
     /**Dials*/
     juce::LV_Dial m_CutoffDial {" Hz", 300.0, 5000.0, 1.0, 300.0};
     juce::LV_Dial m_QDial {" Q", 0.05, 0.95, 0.05, 0.3};
     juce::LV_Dial m_DriveDial {" dB", 0.0, 24.0, 0.25, 0.0};
     std::vector<juce::Slider*> sliders {&m_CutoffDial, &m_QDial, &m_DriveDial};
     void init_dials();
+    void set_dial_props();
     juce::LV_AlphaDialLAF customDial;
+    
     
     /**Labels*/
     juce::LV_Label m_CutoffLabel {"Cutoff"};
     juce::LV_Label m_QLabel {"Width"};
     juce::LV_Label m_DriveLabel {"Drive"};
+    juce::LV_Label m_InputLabel {"Input"};
+    juce::LV_Label m_OutputLabel {"Output"};
     std::vector<juce::Label*> labels {&m_CutoffLabel, &m_QLabel, &m_DriveLabel};
     void init_labels();
     
     /**Toggles*/
     juce::LV_Toggle m_PrePostToggle;
     juce::LV_Toggle m_Phase;
+    void extracted();
+    
     void init_toggles();
+    void set_pre_post_toggle_props();
+    void set_phase_toggle_props();
+    
+    /**Menu*/
+    juce::LV_Menu m_ClipMenu {"Clip Voice"};
+    void init_Menu();
     
     /**Position Components*/
     void position_components();
@@ -68,6 +87,18 @@ private:
     
     /**Clean Memory*/
     void clean_memory();
+    
+    /**Shadows*/
+    /**Initialize shadows*/
+    void init_shadows();
+    
+    /**Dial shadow*/
+    juce::DropShadow shadowProperties;
+    juce::DropShadowEffect dialShadow;
+    
+    /**Fader shadow*/
+    juce::DropShadow sliderShadowProperties;
+    juce::DropShadowEffect sliderShadow;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (BTClipAudioProcessorEditor)
 };

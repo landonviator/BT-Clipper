@@ -21,14 +21,15 @@ public:
     LV_Toggle()
     {
         setClickingTogglesState(true);
-        setColour(0x1000100, juce::Colours::black.withAlpha(0.35f));
-        setColour(0x1000c00, juce::Colour::fromFloatRGBA(0, 0, 0, 0));
-        setColour(0x1000101, juce::Colours::lightgoldenrodyellow.darker(0.2f));
-        setColour(0x1000102, juce::Colours::whitesmoke.withAlpha(0.25f));
-        setColour(0x1000103, juce::Colours::black.brighter(0.1));
+        setColour(juce::TextButton::ColourIds::buttonColourId, juce::Colours::black.withAlpha(0.35f));
+        setColour(juce::TextButton::ColourIds::buttonOnColourId, juce::Colours::black.withAlpha(0.35f));
+        setColour(juce::TextButton::ColourIds::textColourOffId, juce::Colours::skyblue.withAlpha(0.75f));
+        setColour(juce::TextButton::ColourIds::textColourOnId, juce::Colours::skyblue.withAlpha(0.75f));
+        setColour(juce::ComboBox::ColourIds::outlineColourId, juce::Colour::fromFloatRGBA(0, 0, 0, 0));
     }
     
 private:
+    
     
 };
 }

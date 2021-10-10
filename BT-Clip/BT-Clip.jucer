@@ -4,8 +4,16 @@
               addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1" companyName="Viator DSP"
               pluginName="BT Clip">
   <MAINGROUP id="Yz13QN" name="BT-Clip">
+    <GROUP id="{51EF8444-596F-449F-C4A0-DF3E1C10684C}" name="Shadow">
+      <FILE id="gjucgA" name="ShadowProps.cpp" compile="1" resource="0" file="Source/ShadowProps.cpp"/>
+    </GROUP>
+    <GROUP id="{0DF011DD-7982-401F-66D6-3181595FE91E}" name="Menus">
+      <FILE id="O7KGYE" name="InitMenu.cpp" compile="1" resource="0" file="Source/InitMenu.cpp"/>
+    </GROUP>
     <GROUP id="{D55DC761-F3D1-E0F4-D877-71F48D19F691}" name="Toggles">
+      <FILE id="X0oO4n" name="EQToggle.cpp" compile="1" resource="0" file="Source/EQToggle.cpp"/>
       <FILE id="s5hdop" name="InitToggles.cpp" compile="1" resource="0" file="Source/InitToggles.cpp"/>
+      <FILE id="vJF1Vp" name="PhaseToggle.cpp" compile="1" resource="0" file="Source/PhaseToggle.cpp"/>
     </GROUP>
     <GROUP id="{345761D5-32E7-105F-5E2B-FBE82A9E5826}" name="Clean Up">
       <FILE id="pd4CVa" name="CleanMemory.cpp" compile="1" resource="0" file="Source/CleanMemory.cpp"/>
@@ -14,6 +22,7 @@
       <FILE id="DATXoi" name="InitLabels.cpp" compile="1" resource="0" file="Source/InitLabels.cpp"/>
     </GROUP>
     <GROUP id="{FD07ECCD-6FB0-8D7E-6882-6DBD1785442F}" name="Sliders">
+      <FILE id="dil66y" name="DialProps.cpp" compile="1" resource="0" file="Source/DialProps.cpp"/>
       <FILE id="LlEeFc" name="InitSliders.cpp" compile="1" resource="0" file="Source/InitSliders.cpp"/>
     </GROUP>
     <GROUP id="{E0FCBD58-8D8D-89D0-2D6B-B2FCF0024865}" name="Window">
@@ -29,6 +38,7 @@
       <FILE id="E4x6eE" name="LV_GroupComponent.h" compile="0" resource="0"
             file="Source/LV_GroupComponent.h"/>
       <FILE id="YjHP7s" name="LV_Label.h" compile="0" resource="0" file="Source/LV_Label.h"/>
+      <FILE id="JNSWZJ" name="LV_Menu.h" compile="0" resource="0" file="Source/LV_Menu.h"/>
       <FILE id="mG1iMO" name="LV_Toggle.h" compile="0" resource="0" file="Source/LV_Toggle.h"/>
       <FILE id="kNkF7O" name="StyleSheet.cpp" compile="1" resource="0" file="Source/StyleSheet.cpp"/>
       <FILE id="BJ7EbA" name="StyleSheet.h" compile="0" resource="0" file="Source/StyleSheet.h"/>
