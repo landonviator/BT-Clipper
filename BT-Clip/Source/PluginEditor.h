@@ -52,6 +52,9 @@ private:
     void set_dial_props();
     juce::LV_AlphaDialLAF customDial;
     
+    /**Slider attachments*/
+    std::unique_ptr <juce::AudioProcessorValueTreeState::SliderAttachment> inputSliderAttach, outputSliderAttach, cutoffSliderAttach,
+    qSliderAttach, driveSliderAttach;
     
     /**Labels*/
     juce::LV_Label m_CutoffLabel {"Cutoff"};
@@ -67,6 +70,9 @@ private:
     juce::LV_Toggle m_Phase;
     void extracted();
     
+    /**Button attachments*/
+    std::unique_ptr <juce::AudioProcessorValueTreeState::ButtonAttachment> filterEngageButtonAttach, phaseButtonAttach;
+    
     void init_toggles();
     void set_pre_post_toggle_props();
     void set_phase_toggle_props();
@@ -74,6 +80,9 @@ private:
     /**Menu*/
     juce::LV_Menu m_ClipMenu {"Clip Voice"};
     void init_Menu();
+    
+    /**Slider attachments*/
+    std::unique_ptr <juce::AudioProcessorValueTreeState::ComboBoxAttachment> menuAttach;
     
     /**Position Components*/
     void position_components();

@@ -19,8 +19,8 @@ BTClipAudioProcessorEditor::BTClipAudioProcessorEditor (BTClipAudioProcessor& p)
     init_labels();
     init_toggles();
     init_Menu();
-    set_dial_props();
     set_phase_toggle_props();
+    set_dial_props();
 }
 
 BTClipAudioProcessorEditor::~BTClipAudioProcessorEditor()

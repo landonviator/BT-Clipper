@@ -12,6 +12,12 @@
 
 void BTClipAudioProcessorEditor::init_dials()
 {
+    inputSliderAttach = std::make_unique<juce::AudioProcessorValueTreeState::SliderAttachment>(audioProcessor.treeState, inputSliderId, m_InputSlider);
+    outputSliderAttach = std::make_unique<juce::AudioProcessorValueTreeState::SliderAttachment>(audioProcessor.treeState, outputSliderId, m_OutputSlider);
+    cutoffSliderAttach = std::make_unique<juce::AudioProcessorValueTreeState::SliderAttachment>(audioProcessor.treeState, cutoffSliderId, m_CutoffDial);
+    qSliderAttach = std::make_unique<juce::AudioProcessorValueTreeState::SliderAttachment>(audioProcessor.treeState, qSliderId, m_QDial);
+    driveSliderAttach = std::make_unique<juce::AudioProcessorValueTreeState::SliderAttachment>(audioProcessor.treeState, driveSliderId, m_DriveDial);
+    
     addAndMakeVisible(m_InputSlider);
     m_InputSlider.setLookAndFeel(&customSlider);
     m_InputSlider.setComponentEffect(&sliderShadow);

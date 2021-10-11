@@ -21,7 +21,7 @@ public:
     LV_Dial(juce::String suffix, double rangeStart, double rangeEnd, double intervalValue, double returnValue)
     {
         setSliderStyle(Slider::SliderStyle::RotaryVerticalDrag);
-        setTextBoxStyle(Slider::TextBoxBelow, false, 72, 32);
+        setTextBoxStyle(Slider::TextBoxBelow, false, 96, 32);
         setRange(rangeStart, rangeEnd, intervalValue);
         setDoubleClickReturnValue(true, returnValue);
         setTextValueSuffix(suffix);

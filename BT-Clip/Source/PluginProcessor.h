@@ -10,10 +10,35 @@
 
 #include <JuceHeader.h>
 
+#define filterToggleId "filter toggle"
+#define filterToggleName "Filter Toggle"
+
+#define phaseId "phase toggle"
+#define phaseName "Phase Toggle"
+
+#define driveModelId "drive model"
+#define driveModelName "Drive Model"
+
+#define inputSliderId "input slider"
+#define inputSliderName "Input Slider"
+
+#define outputSliderId "output slider"
+#define outputSliderName "Output Slider"
+
+#define cutoffSliderId "cutoff slider"
+#define cutoffSliderName "Cutoff Slider"
+
+#define qSliderId "q slider"
+#define qSliderName "Q Slider"
+
+#define driveSliderId "drive slider"
+#define driveSliderName "Drive Slider"
+
+
 //==============================================================================
 /**
 */
-class BTClipAudioProcessor  : public juce::AudioProcessor
+class BTClipAudioProcessor  : public juce::AudioProcessor, public juce::AudioProcessorValueTreeState::Listener
 {
 public:
     //==============================================================================
@@ -68,14 +93,16 @@ public:
       }
     };
     
-    /**Parameters*/
-    juce::AudioProcessorValueTreeState::ParameterLayout createParameterLayout();
-    
     /**Window Vars*/
     float m_WindowWidth {0.0f};
     float m_WindowHeight {0.0f};
 
 private:
+    
+    /**Parameters*/
+    juce::AudioProcessorValueTreeState::ParameterLayout createParameterLayout();
+    void parameterChanged (const juce::String& parameterID, float newValue) override;
+    
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (BTClipAudioProcessor)
 };

@@ -12,13 +12,13 @@
 
 void BTClipAudioProcessorEditor::set_pre_post_toggle_props()
 {
-    const auto message = m_PrePostToggle.getToggleState() ? "Pre" : "Post";
+    const auto message = m_PrePostToggle.getToggleState() ? "Post" : "Pre";
     
     m_PrePostToggle.setButtonText(message);
     
     m_PrePostToggle.onClick = [&]()
     {
-        const auto message = m_PrePostToggle.getToggleState() ? "Pre" : "Post";
+        const auto message = m_PrePostToggle.getToggleState() ? "Post" : "Pre";
         
         m_PrePostToggle.setButtonText(message);
     };
