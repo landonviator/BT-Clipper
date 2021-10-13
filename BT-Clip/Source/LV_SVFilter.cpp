@@ -64,7 +64,7 @@ void LV_SVFilter::setParameter(ParameterId parameter, float parameterValue)
             else
             {
                 /**Only turn the filter back on if the button is not off*/
-                mGlobalBypass = buttonState;
+                mGlobalBypass = false;
             }
             
             break;

@@ -87,12 +87,12 @@ void BTClipAudioProcessor::parameterChanged(const juce::String &parameterID, flo
     
     if (parameterID == cutoffSliderId)
     {
-        DBG("Cutoff: " << newValue);
+        m_MidToneModule.setParameter(LV_SVFilter::ParameterId::kCutoff, newValue);
     }
     
     if (parameterID == midGainSliderId)
     {
-        DBG("Mid Gain: " << newValue);
+        m_MidToneModule.setParameter(LV_SVFilter::ParameterId::kGain, newValue);
     }
     
     if (parameterID == driveSliderId)
@@ -236,6 +236,20 @@ void BTClipAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juce:
     for (auto i = totalNumInputChannels; i < totalNumOutputChannels; ++i)
         buffer.clear (i, 0, buffer.getNumSamples());
 
+    // Main DSP Loop
+    auto channelBuffers = buffer.getArrayOfWritePointers();
+
+    for (auto sample {0}; sample < buffer.getNumSamples(); sample++)
+    {
+        for (auto channel {0}; channel < buffer.getNumChannels(); channel++)
+        {
+            auto x = channelBuffers[channel][sample];
+
+            x = m_MidToneModule.processSample(x, channel);
+            
+            channelBuffers[channel][sample] = x;
+        }
+    }
 }
 
 //==============================================================================

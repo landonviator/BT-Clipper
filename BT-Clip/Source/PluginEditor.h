@@ -58,7 +58,7 @@ private:
     
     /**Labels*/
     juce::LV_Label m_CutoffLabel {"Cutoff"};
-    juce::LV_Label m_MidToneGainLabel {"Gain"};
+    juce::LV_Label m_MidToneGainLabel {"Mid Gain"};
     juce::LV_Label m_DriveLabel {"Drive"};
     juce::LV_Label m_InputLabel {"Input"};
     juce::LV_Label m_OutputLabel {"Output"};
