@@ -97,16 +97,36 @@ void BTClipAudioProcessor::parameterChanged(const juce::String &parameterID, flo
     
     if (parameterID == driveSliderId)
     {
-        // Drive for this algorithim needs to be between 1 and 10
-        //auto driver = juce::jmap(newValue, 0.0f, 10.0f, 1.0f, 36.0f);
+        m_ClippersModule.setParameter(LV_Clippers ::ParameterId::kDrive, newValue);
         
-        m_SoftClipperModule.setParameter(LV_SoftClipper::ParameterId::kDrive, newValue);
-        
-        // Auto compensate the output as a function of the drive
-        if (newValue <= 28)
+        // Auto compensation
+        if (*treeState.getRawParameterValue(driveModelId) == 1)
         {
-            m_Compensate = pow(10.0, -newValue * 0.04);
-            variableTree.setProperty("compensate", m_Compensate, nullptr);
+            if (newValue <= 28)
+            {
+                m_Compensate = pow(10.0, -newValue * 0.04);
+                variableTree.setProperty("compensate", m_Compensate, nullptr);
+            }
+        }
+        
+        else if (*treeState.getRawParameterValue(driveModelId) == 0)
+        {
+            if (newValue <= 24)
+            {
+                m_Compensate = pow(10.0, -newValue * 0.05);
+                variableTree.setProperty("compensate", m_Compensate, nullptr);
+            }
+        }
+        
+        else
+        {
+            if (newValue <= 24)
+            {
+                m_Compensate = pow(10.0, -newValue * 0.05);
+                variableTree.setProperty("compensate", m_Compensate, nullptr);
+            }
+            
+            m_ClippersModule.setParameter(LV_Clippers ::ParameterId::kDrive, newValue + 6.0);
         }
     }
     
@@ -122,7 +142,21 @@ void BTClipAudioProcessor::parameterChanged(const juce::String &parameterID, flo
     
     if (parameterID == driveModelId)
     {
-        DBG("DriveModel: " << newValue);
+        if (newValue == 0)
+        {
+            m_ClippersModule.set_clipping_type(LV_Clippers::ClippingType::kHardClip);
+        }
+
+        else if (newValue == 1)
+        {
+            m_ClippersModule.set_clipping_type(LV_Clippers::ClippingType::kSoftClip);
+        }
+
+        else
+        {
+            m_ClippersModule.set_clipping_type(LV_Clippers::ClippingType::kAnalog);
+            m_ClippersModule.setParameter(LV_Clippers ::ParameterId::kDrive, 6.0);
+        }
     }
 }
 
@@ -204,12 +238,14 @@ void BTClipAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock
     m_MidToneModule.setParameter(LV_SVFilter::ParameterId::kQ, 0.33);
     m_MidToneModule.setParameter(LV_SVFilter::ParameterId::kGain, *treeState.getRawParameterValue(midGainSliderId));
     
-    m_SoftClipperModule.reset();
-    m_SoftClipperModule.prepare(spec);
+    m_ClippersModule.reset();
+    m_ClippersModule.prepare(spec);
 
     m_PostEq = *treeState.getRawParameterValue(filterToggleId);
     m_Preamp = pow(10.0f, *treeState.getRawParameterValue(inputSliderId) * 0.05f);
     m_Trim = pow(10.0f, *treeState.getRawParameterValue(outputSliderId) * 0.05f);
+    
+    m_ClippersModule.set_clipping_type(LV_Clippers::ClippingType::kHardClip);
 }
 
 void BTClipAudioProcessor::releaseResources()
@@ -267,12 +303,12 @@ void BTClipAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juce:
             if (m_PostEq)
             {
                 x = m_MidToneModule.processSample(x, channel);
-                x = m_SoftClipperModule.processSample(x);
+                x = m_ClippersModule.processSample(x);
             }
             
             else
             {
-                x = m_SoftClipperModule.processSample(x);
+                x = m_ClippersModule.processSample(x);
                 x = m_MidToneModule.processSample(x, channel);
             }
             
@@ -321,7 +357,8 @@ void BTClipAudioProcessor::setStateInformation (const void* data, int sizeInByte
     m_Preamp = pow(10.0f, *treeState.getRawParameterValue(inputSliderId) * 0.05f);
     m_Trim = pow(10.0f, *treeState.getRawParameterValue(outputSliderId) * 0.05f);
     m_Phase = *treeState.getRawParameterValue(phaseId);
-    //m_SoftClipperModule.setParameter(LV_SoftClipper::ParameterId::kDrive, *treeState.getRawParameterValue(driveSliderId));
+    
+    m_ClippersModule.setParameter(LV_Clippers::ParameterId::kDrive, *treeState.getRawParameterValue(driveSliderId));
 }
 
 //==============================================================================

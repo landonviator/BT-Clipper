@@ -9,9 +9,7 @@
 #pragma once
 
 #include <JuceHeader.h>
-#include "LV_HardClipper.h"
-#include "LV_SoftClipper.h"
-#include "PedalDistortion.h"
+#include "LV_Clippers.h"
 #include "LV_SVFilter.h"
 
 #define filterToggleId "filter toggle"
@@ -109,9 +107,7 @@ private:
     void parameterChanged (const juce::String& parameterID, float newValue) override;
     
     /**DSP*/
-    LV_HardClipper m_HardClipperModule;
-    LV_SoftClipper m_SoftClipperModule;
-    PedalDistortion m_AnalogClipperModule;
+    LV_Clippers m_ClippersModule;
     LV_SVFilter m_MidToneModule;
     
     float m_Compensate {1.0};

@@ -8,10 +8,10 @@
   ==============================================================================
 */
 
-#include "LV_SoftClipper.h"
+#include "LV_Clippers.h"
 
 
-void LV_SoftClipper::reset()
+void LV_Clippers::reset()
 {
     preamp = 0.0;
     trim = 1.0;
@@ -22,31 +22,66 @@ void LV_SoftClipper::reset()
     powerState = true;
 }
 
-void LV_SoftClipper::prepare(juce::dsp::ProcessSpec spec)
+void LV_Clippers::prepare(juce::dsp::ProcessSpec spec)
 {
     currentSampleRate = spec.sampleRate;
 }
 
-float LV_SoftClipper::processSample(float input)
+float LV_Clippers::processSample(float input)
 {
     // Don't process signal if the module isn't enabled
     if (!powerState) return input;
     
-    // Exponential Distortion
-    if (input >= 0.0)
+    switch (m_ClipType)
     {
-        output = 1.0 - exp(-abs(drive * input));
-    }
+        case ClippingType::kHardClip:
+        {
+            input *= drive;
             
-    else
-    {
-        output = -1.0 * (1.0 - exp(-abs(drive * input)));
+            // Hard clipper
+            if (input >= thresh)
+            {
+                output = thresh;
+            }
+                
+            else if (input <= -thresh)
+            {
+                output = -thresh;
+            }
+                
+            else
+            {
+                output = input;
+            }
+            
+        } break;
+            
+        case ClippingType::kSoftClip:
+        {
+            // Exponential Distortion
+            if (input >= 0.0)
+            {
+                output = 1.0 - exp(-abs(drive * input));
+            }
+                    
+            else
+            {
+                output = -1.0 * (1.0 - exp(-abs(drive * input)));
+            }
+            
+        } break;
+            
+        case ClippingType::kAnalog:
+        {
+            output = tanh(-drive * input + input) - tanh(pow(input, 3.0f));
+            
+        } break;
     }
     
     return output;
 }
 
-void LV_SoftClipper::setParameter(ParameterId parameter, float parameterValue)
+void LV_Clippers::setParameter(ParameterId parameter, float parameterValue)
 {
     switch (parameter) {
             
@@ -87,33 +122,38 @@ void LV_SoftClipper::setParameter(ParameterId parameter, float parameterValue)
     }
 }
 
+void LV_Clippers::set_clipping_type(ClippingType clippingType)
+{
+    m_ClipType = clippingType;
+}
 
-float LV_SoftClipper::getPreamp()
+
+float LV_Clippers::getPreamp()
 {
     return preamp;
 }
 
-float LV_SoftClipper::getBias()
+float LV_Clippers::getBias()
 {
     return bias;
 }
 
-float LV_SoftClipper::getTrim()
+float LV_Clippers::getTrim()
 {
     return trim;
 }
 
-float LV_SoftClipper::getBlend()
+float LV_Clippers::getBlend()
 {
     return blend;
 }
 
-float LV_SoftClipper::getSampleRate()
+float LV_Clippers::getSampleRate()
 {
     return currentSampleRate;
 }
 
-bool LV_SoftClipper::getPowerState()
+bool LV_Clippers::getPowerState()
 {
     return powerState;
 }

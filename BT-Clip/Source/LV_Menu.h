@@ -18,7 +18,7 @@ class LV_Menu : public ComboBox
 {
 public:
     
-    LV_Menu(juce::String defaultText)
+    LV_Menu()
     {
         setColour(juce::ComboBox::ColourIds::backgroundColourId, juce::Colours::black.withAlpha(0.35f));
         setColour(juce::ComboBox::ColourIds::outlineColourId, juce::Colours::black.withAlpha(0.0f));
@@ -31,7 +31,6 @@ public:
         getLookAndFeel().setColour(juce::PopupMenu::textColourId, juce::Colours::whitesmoke.withAlpha(0.5f));
         getLookAndFeel().setColour(juce::PopupMenu::highlightedTextColourId, juce::Colours::skyblue);
         
-        setTextWhenNothingSelected(defaultText);
         setJustificationType(juce::Justification::centred);
     }
     

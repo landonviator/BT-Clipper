@@ -9,10 +9,8 @@
             file="Source/LV_HardClipper.cpp"/>
       <FILE id="JTVFFc" name="LV_HardClipper.h" compile="0" resource="0"
             file="Source/LV_HardClipper.h"/>
-      <FILE id="jFuASc" name="LV_SoftClipper.cpp" compile="1" resource="0"
-            file="Source/LV_SoftClipper.cpp"/>
-      <FILE id="O1oylt" name="LV_SoftClipper.h" compile="0" resource="0"
-            file="Source/LV_SoftClipper.h"/>
+      <FILE id="jFuASc" name="LV_Clippers.cpp" compile="1" resource="0" file="Source/LV_Clippers.cpp"/>
+      <FILE id="O1oylt" name="LV_Clippers.h" compile="0" resource="0" file="Source/LV_Clippers.h"/>
       <FILE id="h9rY2e" name="LV_SVFilter.cpp" compile="1" resource="0" file="Source/LV_SVFilter.cpp"/>
       <FILE id="LKiW5N" name="LV_SVFilter.h" compile="0" resource="0" file="Source/LV_SVFilter.h"/>
       <FILE id="jpGriD" name="PedalDistortion.cpp" compile="1" resource="0"

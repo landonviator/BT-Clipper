@@ -10,12 +10,12 @@
 
 #pragma once
 
-#ifndef LV_SoftClipper_h
-#define LV_SoftClipper_h
+#ifndef LV_Clippers_h
+#define LV_Clippers_h
 
 #include <JuceHeader.h>
 
-class LV_SoftClipper
+class LV_Clippers
 {
 public:
     
@@ -34,7 +34,17 @@ public:
             kSampleRate
         };
     
+    enum class ClippingType
+    {
+        kHardClip,
+        kSoftClip,
+        kAnalog
+    };
+    
     void setParameter(ParameterId parameter, float parameterValue);
+    
+    void set_clipping_type(ClippingType clippingType);
+    
     
     float getPreamp();
     
@@ -55,6 +65,8 @@ private:
     int clipperType {0};
     
     bool powerState = true;
+    
+    ClippingType m_ClipType = ClippingType::kHardClip;
 };
 
-#endif /* LV_SoftClipper_h */
+#endif /* LV_Clippers_h */

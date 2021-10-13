@@ -78,7 +78,7 @@ private:
     void set_phase_toggle_props();
     
     /**Menu*/
-    juce::LV_Menu m_ClipMenu {"Clip Voice"};
+    juce::LV_Menu m_ClipMenu;
     void init_Menu();
     
     /**Slider attachments*/
