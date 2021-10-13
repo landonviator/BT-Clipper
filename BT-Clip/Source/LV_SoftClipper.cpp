@@ -16,10 +16,7 @@ void LV_SoftClipper::reset()
     preamp = 0.0;
     trim = 1.0;
     blend = 1.0;
-    drive = 0.0;
-    
-    bias = 0.0;
-    
+    drive = 1.0f;
     piDivisor = 2 / 3.1415926;
     
     powerState = true;
@@ -35,60 +32,18 @@ float LV_SoftClipper::processSample(float input)
     // Don't process signal if the module isn't enabled
     if (!powerState) return input;
     
-    auto x_n = input + bias;
-    
-    switch(clipperType)
+    // Exponential Distortion
+    if (input >= 0.0)
     {
-        case 0:
-        {
-            // Drive for this algorithim needs to be between 0 and 1
-            auto driver = juce::jmap(drive, 0.0f, 24.0f, 0.0f, 1.0f);
+        output = 1.0 - exp(-abs(drive * input));
+    }
             
-            // Cubic distortion
-            output = x_n - driver * pow(x_n, 3.0);
-            
-            // Trim the output
-            output *= trim;
-                        
-            break;
-        }
-            
-        case 1:
-        {
-            // Arctan Distortion
-            output = piDivisor * atan(x_n * pow(10.0, drive * 0.05));
-            
-            // Auto compensate the output as a function of the drive
-            output *= trim * pow(10.0, -drive * 0.05);
-                        
-            break;
-        }
-            
-        case 2:
-        {
-            // Drive for this algorithim needs to be between 1 and 10
-            auto driver = juce::jmap(drive, 0.0f, 24.0f, 1.0f, 10.0f);
-            
-            // Exponential Distortion
-            if (x_n >= 0.0)
-            {
-                output = 1.0 - exp(-abs(driver * x_n));
-            }
-            
-            else
-            {
-                output = -1.0 * (1.0 - exp(-abs(driver * x_n)));
-            }
-            
-            // Auto compensate the output as a function of the drive
-            output *= trim * pow(10.0, -drive * 0.025);
-                        
-            break;
-        }
+    else
+    {
+        output = -1.0 * (1.0 - exp(-abs(drive * input)));
     }
     
-    // Return blended output
-    return x_n * (1.0 - blend) + (output - bias) * blend;
+    return output;
 }
 
 void LV_SoftClipper::setParameter(ParameterId parameter, float parameterValue)
@@ -110,7 +65,7 @@ void LV_SoftClipper::setParameter(ParameterId parameter, float parameterValue)
         case ParameterId::kDrive:
         {
             // Should be in dB
-            drive = parameterValue; break;
+            drive = pow(10.0f, parameterValue * 0.05f); break;
         }
             
         case ParameterId::kTrim:
@@ -132,26 +87,6 @@ void LV_SoftClipper::setParameter(ParameterId parameter, float parameterValue)
     }
 }
 
-void LV_SoftClipper::setClippingType(ClippingType clippingType)
-{
-    switch (clippingType) {
-            
-        case ClippingType::kCubicDistortion:
-        {
-            clipperType = 0; break;
-        }
-            
-        case ClippingType::kArctanDistortion:
-        {
-            clipperType = 1; break;
-        }
-            
-        case ClippingType::kExponentialDistortion:
-        {
-            clipperType = 2; break;
-        }
-    }
-}
 
 float LV_SoftClipper::getPreamp()
 {

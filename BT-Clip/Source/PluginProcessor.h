@@ -15,7 +15,7 @@
 #include "LV_SVFilter.h"
 
 #define filterToggleId "filter toggle"
-#define filterToggleName "Filter Toggle"
+#define filterToggleName "Post EQ"
 
 #define phaseId "phase toggle"
 #define phaseName "Phase Toggle"
@@ -29,8 +29,8 @@
 #define outputSliderId "output slider"
 #define outputSliderName "Output Slider"
 
-#define cutoffSliderId "cutoff slider"
-#define cutoffSliderName "Cutoff Slider"
+#define cutoffSliderId "mid tone"
+#define cutoffSliderName "Mid Tone"
 
 #define midGainSliderId "mid gain"
 #define midGainSliderName "Mid Gain"
@@ -91,7 +91,8 @@ public:
         { "Group", {{ "name", "RMS Vars" }},
           {
               { "Parameter", {{ "id", "width" }, { "value", 0.0 }}},
-                { "Parameter", {{ "id", "height" }, { "value", 0.0 }}}
+                { "Parameter", {{ "id", "height" }, { "value", 0.0 }}},
+                { "Parameter", {{ "id", "compensate" }, { "value", 1.0 }}}
           }
         }
       }
@@ -112,6 +113,12 @@ private:
     LV_SoftClipper m_SoftClipperModule;
     PedalDistortion m_AnalogClipperModule;
     LV_SVFilter m_MidToneModule;
+    
+    float m_Compensate {1.0};
+    float m_Preamp {0.0};
+    float m_Trim {0.0};
+    bool m_Phase {false};
+    bool m_PostEq {false};
     
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (BTClipAudioProcessor)

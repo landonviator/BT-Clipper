@@ -46,7 +46,7 @@ private:
     /**Dials*/
     juce::LV_Dial m_CutoffDial {" Hz", 300.0, 5000.0, 1.0, 300.0};
     juce::LV_Dial m_MidToneGain {" dB", -10.0, 10.0, 0.25, 0.0};
-    juce::LV_Dial m_DriveDial {" dB", 0.0, 24.0, 0.25, 0.0};
+    juce::LV_Dial m_DriveDial {" dB", 0.0, 32.0, 0.25, 0.0};
     std::vector<juce::Slider*> sliders {&m_CutoffDial, &m_MidToneGain, &m_DriveDial};
     void init_dials();
     void set_dial_props();
@@ -57,7 +57,7 @@ private:
     midGainSliderAttach, driveSliderAttach;
     
     /**Labels*/
-    juce::LV_Label m_CutoffLabel {"Cutoff"};
+    juce::LV_Label m_CutoffLabel {"Mid Tone"};
     juce::LV_Label m_MidToneGainLabel {"Mid Gain"};
     juce::LV_Label m_DriveLabel {"Drive"};
     juce::LV_Label m_InputLabel {"Input"};

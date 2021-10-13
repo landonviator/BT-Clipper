@@ -34,15 +34,7 @@ public:
             kSampleRate
         };
     
-    enum class ClippingType {
-            kCubicDistortion,
-            kArctanDistortion,
-            kExponentialDistortion,
-        };
-    
     void setParameter(ParameterId parameter, float parameterValue);
-    
-    void setClippingType(ClippingType clippingType);
     
     float getPreamp();
     
@@ -58,7 +50,7 @@ public:
     
 private:
     
-    float preamp {1.0}, trim {1.0}, blend {1.0}, currentSampleRate {44100.0}, output {0.0}, drive{0.0}, piDivisor, bias;
+    float preamp {1.0}, trim {1.0}, blend {1.0}, currentSampleRate {44100.0}, output {0.0}, drive{1.0f}, piDivisor, bias, compensate {1.0}, thresh {1.0};
     
     int clipperType {0};
     

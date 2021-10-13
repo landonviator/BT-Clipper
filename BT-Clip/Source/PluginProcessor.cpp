@@ -59,7 +59,7 @@ juce::AudioProcessorValueTreeState::ParameterLayout BTClipAudioProcessor::create
     auto p_Output = std::make_unique<juce::AudioParameterFloat>(outputSliderId, outputSliderName, -24.0, 24.0, 0.0);
     auto p_Cutoff = std::make_unique<juce::AudioParameterFloat>(cutoffSliderId, cutoffSliderName, 300, 5000, 1000);
     auto p_MidGain = std::make_unique<juce::AudioParameterFloat>(midGainSliderId, midGainSliderName, -10.0, 10.0, 0.0);
-    auto p_Drive = std::make_unique<juce::AudioParameterFloat>(driveSliderId, driveSliderName, 0.0, 24.0, 0.0);
+    auto p_Drive = std::make_unique<juce::AudioParameterFloat>(driveSliderId, driveSliderName, 0.0, 32.0, 0.0);
     
     params.push_back(std::move(p_FilterToggle));
     params.push_back(std::move(p_Phase));
@@ -77,12 +77,12 @@ void BTClipAudioProcessor::parameterChanged(const juce::String &parameterID, flo
 {
     if (parameterID == inputSliderId)
     {
-        DBG("Input: " << newValue);
+        m_Preamp = std::powf(10.0f, newValue * 0.05f);
     }
     
     if (parameterID == outputSliderId)
     {
-        DBG("Output: " << newValue);
+        m_Trim = std::powf(10.0f, newValue * 0.05f);
     }
     
     if (parameterID == cutoffSliderId)
@@ -97,17 +97,27 @@ void BTClipAudioProcessor::parameterChanged(const juce::String &parameterID, flo
     
     if (parameterID == driveSliderId)
     {
-        DBG("Drive: " << newValue);
+        // Drive for this algorithim needs to be between 1 and 10
+        //auto driver = juce::jmap(newValue, 0.0f, 10.0f, 1.0f, 36.0f);
+        
+        m_SoftClipperModule.setParameter(LV_SoftClipper::ParameterId::kDrive, newValue);
+        
+        // Auto compensate the output as a function of the drive
+        if (newValue <= 28)
+        {
+            m_Compensate = pow(10.0, -newValue * 0.04);
+            variableTree.setProperty("compensate", m_Compensate, nullptr);
+        }
     }
     
     if (parameterID == filterToggleId)
     {
-        DBG("Pre/Post: " << newValue);
+        m_PostEq = newValue;
     }
     
     if (parameterID == phaseId)
     {
-        DBG("Phase: " << newValue);
+        m_Phase = newValue;
     }
     
     if (parameterID == driveModelId)
@@ -193,6 +203,13 @@ void BTClipAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock
     m_MidToneModule.setParameter(LV_SVFilter::ParameterId::kCutoff, *treeState.getRawParameterValue(cutoffSliderId));
     m_MidToneModule.setParameter(LV_SVFilter::ParameterId::kQ, 0.33);
     m_MidToneModule.setParameter(LV_SVFilter::ParameterId::kGain, *treeState.getRawParameterValue(midGainSliderId));
+    
+    m_SoftClipperModule.reset();
+    m_SoftClipperModule.prepare(spec);
+
+    m_PostEq = *treeState.getRawParameterValue(filterToggleId);
+    m_Preamp = pow(10.0f, *treeState.getRawParameterValue(inputSliderId) * 0.05f);
+    m_Trim = pow(10.0f, *treeState.getRawParameterValue(outputSliderId) * 0.05f);
 }
 
 void BTClipAudioProcessor::releaseResources()
@@ -244,8 +261,27 @@ void BTClipAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juce:
         for (auto channel {0}; channel < buffer.getNumChannels(); channel++)
         {
             auto x = channelBuffers[channel][sample];
+            
+            x *= m_Preamp;
 
-            x = m_MidToneModule.processSample(x, channel);
+            if (m_PostEq)
+            {
+                x = m_MidToneModule.processSample(x, channel);
+                x = m_SoftClipperModule.processSample(x);
+            }
+            
+            else
+            {
+                x = m_SoftClipperModule.processSample(x);
+                x = m_MidToneModule.processSample(x, channel);
+            }
+            
+            x *= m_Compensate;
+            
+            x *= m_Trim;
+            
+            // Avoiding if statement with genius math
+            x *= m_Phase * 2.0 - 1.0;
             
             channelBuffers[channel][sample] = x;
         }
@@ -279,6 +315,13 @@ void BTClipAudioProcessor::setStateInformation (const void* data, int sizeInByte
     
     m_WindowWidth = variableTree.getProperty("width");
     m_WindowHeight = variableTree.getProperty("height");
+    
+    m_Compensate = variableTree.getProperty("compensate");
+    m_PostEq = *treeState.getRawParameterValue(filterToggleId);
+    m_Preamp = pow(10.0f, *treeState.getRawParameterValue(inputSliderId) * 0.05f);
+    m_Trim = pow(10.0f, *treeState.getRawParameterValue(outputSliderId) * 0.05f);
+    m_Phase = *treeState.getRawParameterValue(phaseId);
+    //m_SoftClipperModule.setParameter(LV_SoftClipper::ParameterId::kDrive, *treeState.getRawParameterValue(driveSliderId));
 }
 
 //==============================================================================
