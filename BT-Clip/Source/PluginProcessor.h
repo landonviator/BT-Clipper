@@ -9,6 +9,10 @@
 #pragma once
 
 #include <JuceHeader.h>
+#include "LV_HardClipper.h"
+#include "LV_SoftClipper.h"
+#include "PedalDistortion.h"
+#include "LV_SVFilter.h"
 
 #define filterToggleId "filter toggle"
 #define filterToggleName "Filter Toggle"
@@ -102,6 +106,12 @@ private:
     /**Parameters*/
     juce::AudioProcessorValueTreeState::ParameterLayout createParameterLayout();
     void parameterChanged (const juce::String& parameterID, float newValue) override;
+    
+    /**DSP*/
+    LV_HardClipper m_HardClipperModule;
+    LV_SoftClipper m_SoftClipperModule;
+    PedalDistortion m_AnalogClipperModule;
+    LV_SVFilter m_MidToneModule;
     
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (BTClipAudioProcessor)
