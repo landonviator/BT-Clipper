@@ -50,6 +50,7 @@
 		6A2E4CA9147D7A54D8F08874 /* include_juce_audio_processors.mm */ = {isa = PBXBuildFile; fileRef = 1C9BE502B8218E2EA37CB50C; };
 		7515962A371777ECF76BDB4E /* DiscRecording.framework */ = {isa = PBXBuildFile; fileRef = 257CDA77270269B639034B44; };
 		751CB40F381FDE3D8EAD8509 /* PluginProcessor.cpp */ = {isa = PBXBuildFile; fileRef = 6BE64FD69331A580A6E3EA8B; };
+		79A3B2ED6432A01A2FB91649 /* Logo.cpp */ = {isa = PBXBuildFile; fileRef = CB3980263494DD78E517AB0D; };
 		7E5930F9AD6C5EDC1D56C1E9 /* LV_Clippers.cpp */ = {isa = PBXBuildFile; fileRef = A9595C5F020FB7E5DA17FF97; };
 		81FD93B207275778769E487F /* CoreAudioKit.framework */ = {isa = PBXBuildFile; fileRef = 6B2319A2E8ABE1116727B050; };
 		88468B5CA8BC85FD77DD3640 /* DialProps.cpp */ = {isa = PBXBuildFile; fileRef = 60FCFEDF64249E0FBDD9B652; };
@@ -159,6 +160,7 @@
 		C80699D08A445482B762CFFF /* juce_dsp */ /* juce_dsp */ = {isa = PBXFileReference; lastKnownFileType = folder; name = juce_dsp; path = /Users/land00m/Documents/GitHub/JUCE/modules/juce_dsp; sourceTree = "<absolute>"; };
 		C82DDA4C02CBD7A0AFD773A4 /* include_juce_audio_plugin_client_AU_2.mm */ /* include_juce_audio_plugin_client_AU_2.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = include_juce_audio_plugin_client_AU_2.mm; path = ../../JuceLibraryCode/include_juce_audio_plugin_client_AU_2.mm; sourceTree = SOURCE_ROOT; };
 		C8E54098B632B6076D1ABC1C /* InitMenu.cpp */ /* InitMenu.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = InitMenu.cpp; path = ../../Source/InitMenu.cpp; sourceTree = SOURCE_ROOT; };
+		CB3980263494DD78E517AB0D /* Logo.cpp */ /* Logo.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Logo.cpp; path = ../../Source/Logo.cpp; sourceTree = SOURCE_ROOT; };
 		CC3FD89425B4497892463FA4 /* juce_data_structures */ /* juce_data_structures */ = {isa = PBXFileReference; lastKnownFileType = folder; name = juce_data_structures; path = /Users/land00m/Documents/GitHub/JUCE/modules/juce_data_structures; sourceTree = "<absolute>"; };
 		CDC88096261FE569E6956AF9 /* Shared Code */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libBT-Clip.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D29AA00DF4F276B6BBEDAF27 /* Carbon.framework */ /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
@@ -394,6 +396,7 @@
 			children = (
 				79B675A98C90420C591EDB2F,
 				2B5C0A0B77534D1644759A9A,
+				CB3980263494DD78E517AB0D,
 				E38E2712162DB0BB4FACF634,
 			);
 			name = Window;
@@ -760,6 +763,7 @@
 				01F9A42AD670CC22CF262067,
 				5AE98B68E5EAEA1AA71BBA50,
 				50D08BE4D2CE4F1F035A6D74,
+				79A3B2ED6432A01A2FB91649,
 				998B2D0AF6D05A214F0596C9,
 				22E9E62121D7AED04047AAF9,
 				751CB40F381FDE3D8EAD8509,

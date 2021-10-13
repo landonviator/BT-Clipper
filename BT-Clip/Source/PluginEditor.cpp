@@ -32,6 +32,7 @@ BTClipAudioProcessorEditor::~BTClipAudioProcessorEditor()
 void BTClipAudioProcessorEditor::paint (juce::Graphics& g)
 {
     paint_background(g);
+    paint_logo(g);
 }
 
 void BTClipAudioProcessorEditor::resized()

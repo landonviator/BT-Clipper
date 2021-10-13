@@ -43,6 +43,7 @@
       <FILE id="lMXVVH" name="Background.cpp" compile="1" resource="0" file="Source/Background.cpp"/>
       <FILE id="WMZlpu" name="CreateWindow.cpp" compile="1" resource="0"
             file="Source/CreateWindow.cpp"/>
+      <FILE id="G74YP7" name="Logo.cpp" compile="1" resource="0" file="Source/Logo.cpp"/>
       <FILE id="zU7ViI" name="PositionComponents.cpp" compile="1" resource="0"
             file="Source/PositionComponents.cpp"/>
     </GROUP>

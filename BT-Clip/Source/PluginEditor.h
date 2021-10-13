@@ -94,6 +94,14 @@ private:
     juce::Image pluginBackground;
     void paint_background(juce::Graphics &g);
     
+    /**Logo image*/
+    juce::Image footerLogo;
+    void paint_logo(juce::Graphics &g);
+    
+    /**Hyperlink button*/
+    juce::HyperlinkButton mWebLink;
+    juce::URL mWebUrl {"https://www.patreon.com/ViatorDSP"};
+    
     /**Clean Memory*/
     void clean_memory();
     
