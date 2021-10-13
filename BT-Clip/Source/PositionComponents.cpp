@@ -42,7 +42,7 @@ void BTClipAudioProcessorEditor::position_components()
     m_PrePostToggle.setBounds(m_CutoffDial.getX(), m_CutoffDial.getY() + m_CutoffDial.getHeight() + 24.0, m_CutoffDial.getWidth(), m_CutoffDial.getHeight() / 4.0);
     
     // Phase Toggle
-    m_Phase.setBounds(m_QDial.getX(), m_PrePostToggle.getY(), m_QDial.getWidth(), m_PrePostToggle.getHeight());
+    m_Phase.setBounds(m_MidToneGain.getX(), m_PrePostToggle.getY(), m_MidToneGain.getWidth(), m_PrePostToggle.getHeight());
     
     // Clip Menu
     m_ClipMenu.setBounds(m_DriveDial.getX(), m_PrePostToggle.getY(), m_DriveDial.getWidth(), m_PrePostToggle.getHeight());

@@ -26,7 +26,7 @@ treeState (*this, nullptr, "PARAMETER", createParameterLayout())
     treeState.addParameterListener (inputSliderId, this);
     treeState.addParameterListener (outputSliderId, this);
     treeState.addParameterListener (cutoffSliderId, this);
-    treeState.addParameterListener (qSliderId, this);
+    treeState.addParameterListener (midGainSliderId, this);
     treeState.addParameterListener (driveSliderId, this);
     treeState.addParameterListener (filterToggleId, this);
     treeState.addParameterListener (phaseId, this);
@@ -38,7 +38,7 @@ BTClipAudioProcessor::~BTClipAudioProcessor()
     treeState.removeParameterListener (inputSliderId, this);
     treeState.removeParameterListener (outputSliderId, this);
     treeState.removeParameterListener (cutoffSliderId, this);
-    treeState.removeParameterListener (qSliderId, this);
+    treeState.removeParameterListener (midGainSliderId, this);
     treeState.removeParameterListener (driveSliderId, this);
     treeState.removeParameterListener (filterToggleId, this);
     treeState.removeParameterListener (phaseId, this);
@@ -58,7 +58,7 @@ juce::AudioProcessorValueTreeState::ParameterLayout BTClipAudioProcessor::create
     auto p_Input = std::make_unique<juce::AudioParameterFloat>(inputSliderId, inputSliderName, -24.0, 24.0, 0.0);
     auto p_Output = std::make_unique<juce::AudioParameterFloat>(outputSliderId, outputSliderName, -24.0, 24.0, 0.0);
     auto p_Cutoff = std::make_unique<juce::AudioParameterFloat>(cutoffSliderId, cutoffSliderName, 300, 5000, 1000);
-    auto p_Q = std::make_unique<juce::AudioParameterFloat>(qSliderId, qSliderName, 0.05, 0.95, 0.33);
+    auto p_MidGain = std::make_unique<juce::AudioParameterFloat>(midGainSliderId, midGainSliderName, -10.0, 10.0, 0.0);
     auto p_Drive = std::make_unique<juce::AudioParameterFloat>(driveSliderId, driveSliderName, 0.0, 24.0, 0.0);
     
     params.push_back(std::move(p_FilterToggle));
@@ -67,7 +67,7 @@ juce::AudioProcessorValueTreeState::ParameterLayout BTClipAudioProcessor::create
     params.push_back(std::move(p_Input));
     params.push_back(std::move(p_Output));
     params.push_back(std::move(p_Cutoff));
-    params.push_back(std::move(p_Q));
+    params.push_back(std::move(p_MidGain));
     params.push_back(std::move(p_Drive));
 
    return { params.begin(), params.end() };
@@ -90,9 +90,9 @@ void BTClipAudioProcessor::parameterChanged(const juce::String &parameterID, flo
         DBG("Cutoff: " << newValue);
     }
     
-    if (parameterID == qSliderId)
+    if (parameterID == midGainSliderId)
     {
-        DBG("Q: " << newValue);
+        DBG("Mid Gain: " << newValue);
     }
     
     if (parameterID == driveSliderId)
@@ -181,8 +181,18 @@ void BTClipAudioProcessor::changeProgramName (int index, const juce::String& new
 //==============================================================================
 void BTClipAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
 {
-    // Use this method as the place to do any pre-playback
-    // initialisation that you need..
+    // Initialize spec for dsp modules
+    juce::dsp::ProcessSpec spec;
+    spec.maximumBlockSize = samplesPerBlock;
+    spec.sampleRate = sampleRate;
+    spec.numChannels = getTotalNumOutputChannels();
+    
+    m_MidToneModule.reset();
+    m_MidToneModule.prepare(spec);
+    m_MidToneModule.setParameter(LV_SVFilter::ParameterId::kType, LV_SVFilter::FilterType::kBandShelf);
+    m_MidToneModule.setParameter(LV_SVFilter::ParameterId::kCutoff, *treeState.getRawParameterValue(cutoffSliderId));
+    m_MidToneModule.setParameter(LV_SVFilter::ParameterId::kQ, 0.33);
+    m_MidToneModule.setParameter(LV_SVFilter::ParameterId::kGain, *treeState.getRawParameterValue(midGainSliderId));
 }
 
 void BTClipAudioProcessor::releaseResources()

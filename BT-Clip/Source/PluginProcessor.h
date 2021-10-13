@@ -32,8 +32,8 @@
 #define cutoffSliderId "cutoff slider"
 #define cutoffSliderName "Cutoff Slider"
 
-#define qSliderId "q slider"
-#define qSliderName "Q Slider"
+#define midGainSliderId "mid gain"
+#define midGainSliderName "Mid Gain"
 
 #define driveSliderId "drive slider"
 #define driveSliderName "Drive Slider"

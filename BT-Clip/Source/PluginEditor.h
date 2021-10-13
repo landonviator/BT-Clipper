@@ -45,24 +45,24 @@ private:
     
     /**Dials*/
     juce::LV_Dial m_CutoffDial {" Hz", 300.0, 5000.0, 1.0, 300.0};
-    juce::LV_Dial m_QDial {" Q", 0.05, 0.95, 0.05, 0.3};
+    juce::LV_Dial m_MidToneGain {" dB", -10.0, 10.0, 0.25, 0.0};
     juce::LV_Dial m_DriveDial {" dB", 0.0, 24.0, 0.25, 0.0};
-    std::vector<juce::Slider*> sliders {&m_CutoffDial, &m_QDial, &m_DriveDial};
+    std::vector<juce::Slider*> sliders {&m_CutoffDial, &m_MidToneGain, &m_DriveDial};
     void init_dials();
     void set_dial_props();
     juce::LV_AlphaDialLAF customDial;
     
     /**Slider attachments*/
     std::unique_ptr <juce::AudioProcessorValueTreeState::SliderAttachment> inputSliderAttach, outputSliderAttach, cutoffSliderAttach,
-    qSliderAttach, driveSliderAttach;
+    midGainSliderAttach, driveSliderAttach;
     
     /**Labels*/
     juce::LV_Label m_CutoffLabel {"Cutoff"};
-    juce::LV_Label m_QLabel {"Width"};
+    juce::LV_Label m_MidToneGainLabel {"Gain"};
     juce::LV_Label m_DriveLabel {"Drive"};
     juce::LV_Label m_InputLabel {"Input"};
     juce::LV_Label m_OutputLabel {"Output"};
-    std::vector<juce::Label*> labels {&m_CutoffLabel, &m_QLabel, &m_DriveLabel};
+    std::vector<juce::Label*> labels {&m_CutoffLabel, &m_MidToneGainLabel, &m_DriveLabel};
     void init_labels();
     
     /**Toggles*/
