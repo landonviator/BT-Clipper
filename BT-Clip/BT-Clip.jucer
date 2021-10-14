@@ -4,6 +4,24 @@
               addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1" companyName="Viator DSP"
               pluginName="BT Clip">
   <MAINGROUP id="Yz13QN" name="BT-Clip">
+    <GROUP id="{49ACD2A4-E683-92F4-B31E-0F2EFB399A70}" name="DSPModules">
+      <FILE id="q6QAtg" name="MainDSPLoop.cpp" compile="1" resource="0" file="Source/MainDSPLoop.cpp"/>
+      <FILE id="xDtq78" name="PrepareClipper.cpp" compile="1" resource="0"
+            file="Source/PrepareClipper.cpp"/>
+      <FILE id="kJz3lH" name="PrepareMidTone.cpp" compile="1" resource="0"
+            file="Source/PrepareMidTone.cpp"/>
+      <FILE id="fkWx6R" name="PrepareOthers.cpp" compile="1" resource="0"
+            file="Source/PrepareOthers.cpp"/>
+    </GROUP>
+    <GROUP id="{216F98B3-4037-5A48-2477-DC54D5D3D409}" name="Parameters">
+      <FILE id="bjW3g3" name="AddRemoveListeners.cpp" compile="1" resource="0"
+            file="Source/AddRemoveListeners.cpp"/>
+      <FILE id="k8D8cg" name="CreateParams.cpp" compile="1" resource="0"
+            file="Source/CreateParams.cpp"/>
+      <FILE id="A9NO1G" name="ParamsChanged.cpp" compile="1" resource="0"
+            file="Source/ParamsChanged.cpp"/>
+      <FILE id="HticPr" name="SetState.cpp" compile="1" resource="0" file="Source/SetState.cpp"/>
+    </GROUP>
     <GROUP id="{F0854C33-2262-A006-82B1-3584F2DBAF04}" name="DSP">
       <FILE id="nfp5Ek" name="LV_HardClipper.cpp" compile="1" resource="0"
             file="Source/LV_HardClipper.cpp"/>

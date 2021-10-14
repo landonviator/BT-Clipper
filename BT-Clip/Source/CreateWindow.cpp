@@ -36,6 +36,8 @@ void BTClipAudioProcessorEditor::set_up_window(BTClipAudioProcessor &audioProces
     {
         setSize (width, height);
     }
+    
+    constructorFinished = true;
 }
 
 void BTClipAudioProcessorEditor::save_window_size()
@@ -43,4 +45,10 @@ void BTClipAudioProcessorEditor::save_window_size()
     // Save plugin size in value tree
     audioProcessor.variableTree.setProperty("width", getWidth(), nullptr);
     audioProcessor.variableTree.setProperty("height", getHeight(), nullptr);
+    
+    if (constructorFinished)
+    {
+        audioProcessor.m_WindowWidth = getWidth();
+        audioProcessor.m_WindowHeight = getHeight();
+    }
 }

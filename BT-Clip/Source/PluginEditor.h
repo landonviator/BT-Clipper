@@ -39,8 +39,8 @@ private:
     bool constructorFinished = false;
     
     /**Sliders*/
-    juce::LV_Fader m_InputSlider {" dB", -24.0, 24.0, 0.25, 0.0};
-    juce::LV_Fader m_OutputSlider {" dB", -24.0, 24.0, 0.25, 0.0};
+    juce::LV_Fader m_InputSlider {" dB", -40.0, 40.0, 0.25, 0.0};
+    juce::LV_Fader m_OutputSlider {" dB", -40.0, 40.0, 0.25, 0.0};
     juce::LV_FaderLAF customSlider;
     
     /**Dials*/

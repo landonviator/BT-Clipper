@@ -86,11 +86,10 @@ public:
     juce::ValueTree variableTree
     { "Variables", {},
       {
-        { "Group", {{ "name", "RMS Vars" }},
+        { "Group", {{ "name", "Vars" }},
           {
               { "Parameter", {{ "id", "width" }, { "value", 0.0 }}},
                 { "Parameter", {{ "id", "height" }, { "value", 0.0 }}},
-                { "Parameter", {{ "id", "compensate" }, { "value", 1.0 }}}
           }
         }
       }
@@ -105,16 +104,26 @@ private:
     /**Parameters*/
     juce::AudioProcessorValueTreeState::ParameterLayout createParameterLayout();
     void parameterChanged (const juce::String& parameterID, float newValue) override;
+    void add_params();
+    void remove_params();
+    void set_state();
     
     /**DSP*/
     LV_Clippers m_ClippersModule;
     LV_SVFilter m_MidToneModule;
     
-    float m_Compensate {1.0};
     float m_Preamp {0.0};
     float m_Trim {0.0};
     bool m_Phase {false};
     bool m_PostEq {false};
+    
+    /**DSP Modules*/
+    void prepare_mid_tone(juce::dsp::ProcessSpec spec);
+    void prepare_clipper(juce::dsp::ProcessSpec spec);
+    void prepare_others();
+    
+    /**DSP Loop*/
+    void do_dsp_loop(juce::AudioBuffer<float> &buffer);
     
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (BTClipAudioProcessor)
