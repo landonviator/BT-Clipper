@@ -143,6 +143,7 @@
     <ClCompile Include="..\..\Source\CreateParams.cpp"/>
     <ClCompile Include="..\..\Source\CreateWindow.cpp"/>
     <ClCompile Include="..\..\Source\DialProps.cpp"/>
+    <ClCompile Include="..\..\Source\DriveCompensate.cpp"/>
     <ClCompile Include="..\..\Source\EQToggle.cpp"/>
     <ClCompile Include="..\..\Source\InitLabels.cpp"/>
     <ClCompile Include="..\..\Source\InitMenu.cpp"/>
@@ -156,6 +157,8 @@
     <ClCompile Include="..\..\Source\ParamsChanged.cpp"/>
     <ClCompile Include="..\..\Source\PedalDistortion.cpp"/>
     <ClCompile Include="..\..\Source\PhaseToggle.cpp"/>
+    <ClCompile Include="..\..\Source\PluginEditor.cpp"/>
+    <ClCompile Include="..\..\Source\PluginProcessor.cpp"/>
     <ClCompile Include="..\..\Source\PositionComponents.cpp"/>
     <ClCompile Include="..\..\Source\PrepareClipper.cpp"/>
     <ClCompile Include="..\..\Source\PrepareMidTone.cpp"/>
@@ -163,8 +166,6 @@
     <ClCompile Include="..\..\Source\SetState.cpp"/>
     <ClCompile Include="..\..\Source\ShadowProps.cpp"/>
     <ClCompile Include="..\..\Source\StyleSheet.cpp"/>
-    <ClCompile Include="..\..\Source\PluginProcessor.cpp"/>
-    <ClCompile Include="..\..\Source\PluginEditor.cpp"/>
     <ClCompile Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -2237,9 +2238,9 @@
     <ClInclude Include="..\..\Source\LV_SVFilter.h"/>
     <ClInclude Include="..\..\Source\LV_Toggle.h"/>
     <ClInclude Include="..\..\Source\PedalDistortion.h"/>
-    <ClInclude Include="..\..\Source\StyleSheet.h"/>
-    <ClInclude Include="..\..\Source\PluginProcessor.h"/>
     <ClInclude Include="..\..\Source\PluginEditor.h"/>
+    <ClInclude Include="..\..\Source\PluginProcessor.h"/>
+    <ClInclude Include="..\..\Source\StyleSheet.h"/>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h"/>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\buffers\juce_AudioChannelSet.h"/>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\buffers\juce_AudioDataConverters.h"/>

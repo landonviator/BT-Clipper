@@ -5,71 +5,73 @@
               pluginFormats="buildVST3" pluginName="BT Clipper">
   <MAINGROUP id="phRalq" name="BT-Clip">
     <GROUP id="{D98B2D82-E0D7-64A3-D6FB-A476BF9481BE}" name="Source">
-      <GROUP id="{C493039E-F8F2-B7F3-7BE2-8110415B1B3F}" name="Assets">
-        <FILE id="TpEMYi" name="landon55-03.png" compile="0" resource="1" file="Source/Assets/landon55-03.png"/>
-        <FILE id="S7b1sm" name="landon55-04.png" compile="0" resource="1" file="Source/Assets/landon55-04.png"/>
-        <FILE id="pH9Q7X" name="pluginBackground.png" compile="0" resource="1"
+      <GROUP id="{32E07FE6-F377-0B50-FA62-3642D5EC6E3C}" name="Assets">
+        <FILE id="F25R9t" name="landon55-03.png" compile="0" resource="1" file="Source/Assets/landon55-03.png"/>
+        <FILE id="N2iukq" name="landon55-04.png" compile="0" resource="1" file="Source/Assets/landon55-04.png"/>
+        <FILE id="Mkz8Ai" name="pluginBackground.png" compile="0" resource="1"
               file="Source/Assets/pluginBackground.png"/>
-        <FILE id="iGq5ua" name="pluginBackground2.png" compile="0" resource="1"
+        <FILE id="G4fPqy" name="pluginBackground2.png" compile="0" resource="1"
               file="Source/Assets/pluginBackground2.png"/>
       </GROUP>
-      <FILE id="KQbCZQ" name="AddRemoveListeners.cpp" compile="1" resource="0"
+      <FILE id="vdoyGP" name="AddRemoveListeners.cpp" compile="1" resource="0"
             file="Source/AddRemoveListeners.cpp"/>
-      <FILE id="XJDOd3" name="Background.cpp" compile="1" resource="0" file="Source/Background.cpp"/>
-      <FILE id="HUkDsz" name="CleanMemory.cpp" compile="1" resource="0" file="Source/CleanMemory.cpp"/>
-      <FILE id="p8M7zD" name="CreateParams.cpp" compile="1" resource="0"
+      <FILE id="r41kPW" name="Background.cpp" compile="1" resource="0" file="Source/Background.cpp"/>
+      <FILE id="X4UMXa" name="CleanMemory.cpp" compile="1" resource="0" file="Source/CleanMemory.cpp"/>
+      <FILE id="up945k" name="CreateParams.cpp" compile="1" resource="0"
             file="Source/CreateParams.cpp"/>
-      <FILE id="yos5v5" name="CreateWindow.cpp" compile="1" resource="0"
+      <FILE id="dddk8s" name="CreateWindow.cpp" compile="1" resource="0"
             file="Source/CreateWindow.cpp"/>
-      <FILE id="f7Xe4V" name="DialProps.cpp" compile="1" resource="0" file="Source/DialProps.cpp"/>
-      <FILE id="xK61tK" name="EQToggle.cpp" compile="1" resource="0" file="Source/EQToggle.cpp"/>
-      <FILE id="nZfNb8" name="InitLabels.cpp" compile="1" resource="0" file="Source/InitLabels.cpp"/>
-      <FILE id="Zy1Uo4" name="InitMenu.cpp" compile="1" resource="0" file="Source/InitMenu.cpp"/>
-      <FILE id="dQHLgu" name="InitSliders.cpp" compile="1" resource="0" file="Source/InitSliders.cpp"/>
-      <FILE id="UFF62F" name="InitToggles.cpp" compile="1" resource="0" file="Source/InitToggles.cpp"/>
-      <FILE id="p2dXlv" name="Logo.cpp" compile="1" resource="0" file="Source/Logo.cpp"/>
-      <FILE id="ZRfK6G" name="LV_Clippers.cpp" compile="1" resource="0" file="Source/LV_Clippers.cpp"/>
-      <FILE id="XN54TS" name="LV_Clippers.h" compile="0" resource="0" file="Source/LV_Clippers.h"/>
-      <FILE id="JYzQpL" name="LV_Dial.h" compile="0" resource="0" file="Source/LV_Dial.h"/>
-      <FILE id="RRgbit" name="LV_Fader.h" compile="0" resource="0" file="Source/LV_Fader.h"/>
-      <FILE id="yQ6h2V" name="LV_GroupComponent.h" compile="0" resource="0"
+      <FILE id="knSCQl" name="DialProps.cpp" compile="1" resource="0" file="Source/DialProps.cpp"/>
+      <FILE id="gPtmzX" name="DriveCompensate.cpp" compile="1" resource="0"
+            file="Source/DriveCompensate.cpp"/>
+      <FILE id="ArNSnO" name="EQToggle.cpp" compile="1" resource="0" file="Source/EQToggle.cpp"/>
+      <FILE id="Fm1eLj" name="InitLabels.cpp" compile="1" resource="0" file="Source/InitLabels.cpp"/>
+      <FILE id="fin4UH" name="InitMenu.cpp" compile="1" resource="0" file="Source/InitMenu.cpp"/>
+      <FILE id="OijcvZ" name="InitSliders.cpp" compile="1" resource="0" file="Source/InitSliders.cpp"/>
+      <FILE id="R6SJhg" name="InitToggles.cpp" compile="1" resource="0" file="Source/InitToggles.cpp"/>
+      <FILE id="EjYei5" name="Logo.cpp" compile="1" resource="0" file="Source/Logo.cpp"/>
+      <FILE id="EbW55s" name="LV_Clippers.cpp" compile="1" resource="0" file="Source/LV_Clippers.cpp"/>
+      <FILE id="L97J72" name="LV_Clippers.h" compile="0" resource="0" file="Source/LV_Clippers.h"/>
+      <FILE id="pyEVyt" name="LV_Dial.h" compile="0" resource="0" file="Source/LV_Dial.h"/>
+      <FILE id="yb6HYr" name="LV_Fader.h" compile="0" resource="0" file="Source/LV_Fader.h"/>
+      <FILE id="XDDHuO" name="LV_GroupComponent.h" compile="0" resource="0"
             file="Source/LV_GroupComponent.h"/>
-      <FILE id="GqySDB" name="LV_HardClipper.cpp" compile="1" resource="0"
+      <FILE id="g19Vma" name="LV_HardClipper.cpp" compile="1" resource="0"
             file="Source/LV_HardClipper.cpp"/>
-      <FILE id="YVAmcP" name="LV_HardClipper.h" compile="0" resource="0"
+      <FILE id="om2jVu" name="LV_HardClipper.h" compile="0" resource="0"
             file="Source/LV_HardClipper.h"/>
-      <FILE id="avDOPz" name="LV_Label.h" compile="0" resource="0" file="Source/LV_Label.h"/>
-      <FILE id="Dyor2i" name="LV_Menu.h" compile="0" resource="0" file="Source/LV_Menu.h"/>
-      <FILE id="RLbn1d" name="LV_SVFilter.cpp" compile="1" resource="0" file="Source/LV_SVFilter.cpp"/>
-      <FILE id="JwYGnx" name="LV_SVFilter.h" compile="0" resource="0" file="Source/LV_SVFilter.h"/>
-      <FILE id="A0aB6n" name="LV_Toggle.h" compile="0" resource="0" file="Source/LV_Toggle.h"/>
-      <FILE id="tMDP9Y" name="MainDSPLoop.cpp" compile="1" resource="0" file="Source/MainDSPLoop.cpp"/>
-      <FILE id="L6lzl2" name="ParamsChanged.cpp" compile="1" resource="0"
+      <FILE id="tAzOfg" name="LV_Label.h" compile="0" resource="0" file="Source/LV_Label.h"/>
+      <FILE id="IRfvYz" name="LV_Menu.h" compile="0" resource="0" file="Source/LV_Menu.h"/>
+      <FILE id="iyJQ40" name="LV_SVFilter.cpp" compile="1" resource="0" file="Source/LV_SVFilter.cpp"/>
+      <FILE id="Ov02PM" name="LV_SVFilter.h" compile="0" resource="0" file="Source/LV_SVFilter.h"/>
+      <FILE id="Ydf5Pa" name="LV_Toggle.h" compile="0" resource="0" file="Source/LV_Toggle.h"/>
+      <FILE id="hOPQJE" name="MainDSPLoop.cpp" compile="1" resource="0" file="Source/MainDSPLoop.cpp"/>
+      <FILE id="A8ORwc" name="ParamsChanged.cpp" compile="1" resource="0"
             file="Source/ParamsChanged.cpp"/>
-      <FILE id="eSmDZh" name="PedalDistortion.cpp" compile="1" resource="0"
+      <FILE id="nIKG1d" name="PedalDistortion.cpp" compile="1" resource="0"
             file="Source/PedalDistortion.cpp"/>
-      <FILE id="T0zQYk" name="PedalDistortion.h" compile="0" resource="0"
+      <FILE id="KDrLrX" name="PedalDistortion.h" compile="0" resource="0"
             file="Source/PedalDistortion.h"/>
-      <FILE id="XDwsgg" name="PhaseToggle.cpp" compile="1" resource="0" file="Source/PhaseToggle.cpp"/>
-      <FILE id="tpNniN" name="PositionComponents.cpp" compile="1" resource="0"
-            file="Source/PositionComponents.cpp"/>
-      <FILE id="sbcoLU" name="PrepareClipper.cpp" compile="1" resource="0"
-            file="Source/PrepareClipper.cpp"/>
-      <FILE id="VqXhda" name="PrepareMidTone.cpp" compile="1" resource="0"
-            file="Source/PrepareMidTone.cpp"/>
-      <FILE id="RmUtAj" name="PrepareOthers.cpp" compile="1" resource="0"
-            file="Source/PrepareOthers.cpp"/>
-      <FILE id="fsBK9c" name="SetState.cpp" compile="1" resource="0" file="Source/SetState.cpp"/>
-      <FILE id="czZRdj" name="ShadowProps.cpp" compile="1" resource="0" file="Source/ShadowProps.cpp"/>
-      <FILE id="DcSHVa" name="StyleSheet.cpp" compile="1" resource="0" file="Source/StyleSheet.cpp"/>
-      <FILE id="OrEVhH" name="StyleSheet.h" compile="0" resource="0" file="Source/StyleSheet.h"/>
-      <FILE id="ynLXKg" name="PluginProcessor.cpp" compile="1" resource="0"
-            file="Source/PluginProcessor.cpp"/>
-      <FILE id="PlVEC6" name="PluginProcessor.h" compile="0" resource="0"
-            file="Source/PluginProcessor.h"/>
-      <FILE id="R7bssv" name="PluginEditor.cpp" compile="1" resource="0"
+      <FILE id="g33vAO" name="PhaseToggle.cpp" compile="1" resource="0" file="Source/PhaseToggle.cpp"/>
+      <FILE id="RJkvQX" name="PluginEditor.cpp" compile="1" resource="0"
             file="Source/PluginEditor.cpp"/>
-      <FILE id="oosz4r" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
+      <FILE id="NuSmIv" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
+      <FILE id="ipG1xD" name="PluginProcessor.cpp" compile="1" resource="0"
+            file="Source/PluginProcessor.cpp"/>
+      <FILE id="oOo0fP" name="PluginProcessor.h" compile="0" resource="0"
+            file="Source/PluginProcessor.h"/>
+      <FILE id="KVjzph" name="PositionComponents.cpp" compile="1" resource="0"
+            file="Source/PositionComponents.cpp"/>
+      <FILE id="wSljPl" name="PrepareClipper.cpp" compile="1" resource="0"
+            file="Source/PrepareClipper.cpp"/>
+      <FILE id="oPhbTb" name="PrepareMidTone.cpp" compile="1" resource="0"
+            file="Source/PrepareMidTone.cpp"/>
+      <FILE id="ndYx91" name="PrepareOthers.cpp" compile="1" resource="0"
+            file="Source/PrepareOthers.cpp"/>
+      <FILE id="hu8tpK" name="SetState.cpp" compile="1" resource="0" file="Source/SetState.cpp"/>
+      <FILE id="cVNKfe" name="ShadowProps.cpp" compile="1" resource="0" file="Source/ShadowProps.cpp"/>
+      <FILE id="fUBbCP" name="StyleSheet.cpp" compile="1" resource="0" file="Source/StyleSheet.cpp"/>
+      <FILE id="QjwIzF" name="StyleSheet.h" compile="0" resource="0" file="Source/StyleSheet.h"/>
     </GROUP>
   </MAINGROUP>
   <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_VST3_CAN_REPLACE_VST2="0"/>

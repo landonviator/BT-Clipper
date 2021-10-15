@@ -35,33 +35,6 @@ void BTClipAudioProcessor::parameterChanged(const juce::String &parameterID, flo
     if (parameterID == driveSliderId)
     {
         m_ClippersModule.setParameter(LV_Clippers ::ParameterId::kDrive, newValue);
-        
-        // Auto compensation
-        if (*treeState.getRawParameterValue(driveModelId) == 1)
-        {
-            if (newValue <= 26)
-            {
-                treeState.getParameterAsValue(outputSliderId) = -newValue;
-            }
-        }
-        
-        else if (*treeState.getRawParameterValue(driveModelId) == 0)
-        {
-            if (newValue <= 24)
-            {
-                treeState.getParameterAsValue(outputSliderId) = -newValue;
-            }
-        }
-        
-        else
-        {
-            m_ClippersModule.setParameter(LV_Clippers ::ParameterId::kDrive, newValue + 6.0);
-            
-            if (newValue <= 28)
-            {
-                treeState.getParameterAsValue(outputSliderId) = -newValue;
-            }
-        }
     }
     
     if (parameterID == filterToggleId)
@@ -76,49 +49,51 @@ void BTClipAudioProcessor::parameterChanged(const juce::String &parameterID, flo
     
     if (parameterID == driveModelId)
     {
+        m_Drive_Type = newValue;
         if (newValue == 0)
         {
             m_ClippersModule.set_clipping_type(LV_Clippers::ClippingType::kHardClip);
-            
-            if (*treeState.getRawParameterValue(driveSliderId) <= 24.0)
-            {
-                treeState.getParameterAsValue(outputSliderId) = -*treeState.getRawParameterValue(driveSliderId);
-            }
-            
-            else
-            {
-                treeState.getParameterAsValue(outputSliderId) = -24.0;
-            }
+
+//            if (m_Drive <= 24.0)
+//            {
+//                treeState.getParameterAsValue(outputSliderId) = -m_Drive;
+//            }
+//
+//            else
+//            {
+//                treeState.getParameterAsValue(outputSliderId) = -24.0;
+//            }
         }
 
         else if (newValue == 1)
         {
             m_ClippersModule.set_clipping_type(LV_Clippers::ClippingType::kSoftClip);
-            
-            if (*treeState.getRawParameterValue(driveSliderId) <= 26.0)
-            {
-                treeState.getParameterAsValue(outputSliderId) = -*treeState.getRawParameterValue(driveSliderId);
-            }
-            
-            else
-            {
-                treeState.getParameterAsValue(outputSliderId) = -26.0;
-            }
+
+//            if (m_Drive <= 26.0)
+//            {
+//                treeState.getParameterAsValue(outputSliderId) = -m_Drive;
+//            }
+//
+//            else
+//            {
+//                treeState.getParameterAsValue(outputSliderId) = -26.0;
+//            }
         }
 
         else
         {
             m_ClippersModule.set_clipping_type(LV_Clippers::ClippingType::kAnalog);
-            
-            if (*treeState.getRawParameterValue(driveSliderId) <= 28.0)
-            {
-                treeState.getParameterAsValue(outputSliderId) = -*treeState.getRawParameterValue(driveSliderId);
-            }
-            
-            else
-            {
-                treeState.getParameterAsValue(outputSliderId) = -28.0;
-            }
+
+//            if (m_Drive <= 28.0)
+//            {
+//                treeState.getParameterAsValue(outputSliderId) = -m_Drive;
+//            }
+//
+//            else
+//            {
+//                treeState.getParameterAsValue(outputSliderId) = -28.0;
+//            }
         }
     }
 }
+

@@ -490,6 +490,9 @@
     <ClCompile Include="..\..\Source\DialProps.cpp">
       <Filter>BT-Clip\Source</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\DriveCompensate.cpp">
+      <Filter>BT-Clip\Source</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\EQToggle.cpp">
       <Filter>BT-Clip\Source</Filter>
     </ClCompile>
@@ -529,6 +532,12 @@
     <ClCompile Include="..\..\Source\PhaseToggle.cpp">
       <Filter>BT-Clip\Source</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\PluginEditor.cpp">
+      <Filter>BT-Clip\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\PluginProcessor.cpp">
+      <Filter>BT-Clip\Source</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\PositionComponents.cpp">
       <Filter>BT-Clip\Source</Filter>
     </ClCompile>
@@ -548,12 +557,6 @@
       <Filter>BT-Clip\Source</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\StyleSheet.cpp">
-      <Filter>BT-Clip\Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\PluginProcessor.cpp">
-      <Filter>BT-Clip\Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\PluginEditor.cpp">
       <Filter>BT-Clip\Source</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
@@ -2805,13 +2808,13 @@
     <ClInclude Include="..\..\Source\PedalDistortion.h">
       <Filter>BT-Clip\Source</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\StyleSheet.h">
+    <ClInclude Include="..\..\Source\PluginEditor.h">
       <Filter>BT-Clip\Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\PluginProcessor.h">
       <Filter>BT-Clip\Source</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\PluginEditor.h">
+    <ClInclude Include="..\..\Source\StyleSheet.h">
       <Filter>BT-Clip\Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">

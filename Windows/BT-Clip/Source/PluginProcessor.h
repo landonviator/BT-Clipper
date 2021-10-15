@@ -114,6 +114,8 @@ private:
     
     float m_Preamp {0.0};
     float m_Trim {0.0};
+    float m_Drive {0.0f};
+    int m_Drive_Type {0};
     bool m_Phase {false};
     bool m_PostEq {false};
     

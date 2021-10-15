@@ -40,3 +40,12 @@ void BTClipAudioProcessorEditor::resized()
     position_components();
     save_window_size();
 }
+
+void BTClipAudioProcessorEditor::sliderValueChanged(juce::Slider *slider)
+{
+    // Drive compensation
+    if (slider == &m_DriveDial)
+    {
+        drive_compensation();
+    }
+}

@@ -26,5 +26,5 @@ void BTClipAudioProcessorEditor::paint_logo(juce::Graphics &g)
     // Name
     g.setColour (juce::Colours::whitesmoke.withAlpha(0.125f));
     g.setFont(AudioProcessorEditor::getWidth() * 0.015);
-    g.drawFittedText ("BT Clipper v1.0.0", AudioProcessorEditor::getWidth() * 0.12, AudioProcessorEditor::getHeight() * 0.12, AudioProcessorEditor::getWidth(), AudioProcessorEditor::getHeight(), juce::Justification::topLeft, 1);
+    g.drawFittedText ("BT Clipper v1.2.1", AudioProcessorEditor::getWidth() * 0.12, AudioProcessorEditor::getHeight() * 0.12, AudioProcessorEditor::getWidth(), AudioProcessorEditor::getHeight(), juce::Justification::topLeft, 1);
 }

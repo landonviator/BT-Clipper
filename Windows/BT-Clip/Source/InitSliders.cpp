@@ -29,6 +29,7 @@ void BTClipAudioProcessorEditor::init_dials()
     for (auto i {0}; i < sliders.size(); i++)
     {
         addAndMakeVisible(sliders[i]);
+        sliders[i]->addListener(this);
         sliders[i]->setLookAndFeel(&customDial);
         sliders[i]->setComponentEffect(&dialShadow);
     }

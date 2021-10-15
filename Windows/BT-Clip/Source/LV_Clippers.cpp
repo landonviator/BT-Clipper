@@ -73,7 +73,8 @@ float LV_Clippers::processSample(float input)
             
         case ClippingType::kAnalog:
         {
-            output = tanh(-drive * input + input) - tanh(pow(input, 3.0f));
+            output = tanh((-drive - 1.0) * input + input) - tanh(pow(input, 3.0f));
+            output *= 0.65;
             
         } break;
     }

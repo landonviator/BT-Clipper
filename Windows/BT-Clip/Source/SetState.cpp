@@ -20,5 +20,7 @@ void BTClipAudioProcessor::set_state()
     m_Trim = pow(10.0f, *treeState.getRawParameterValue(outputSliderId) * 0.05f);
     m_Phase = *treeState.getRawParameterValue(phaseId);
     
-    m_ClippersModule.setParameter(LV_Clippers::ParameterId::kDrive, *treeState.getRawParameterValue(driveSliderId));
+    m_Drive_Type = *treeState.getRawParameterValue(driveModelId);
+    m_Drive = *treeState.getRawParameterValue(driveSliderId);
+    m_ClippersModule.setParameter(LV_Clippers::ParameterId::kDrive, m_Drive);
 }
