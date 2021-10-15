@@ -55,6 +55,8 @@
     </GROUP>
     <GROUP id="{FD07ECCD-6FB0-8D7E-6882-6DBD1785442F}" name="Sliders">
       <FILE id="dil66y" name="DialProps.cpp" compile="1" resource="0" file="Source/DialProps.cpp"/>
+      <FILE id="GUDEJw" name="DriveCompensate.cpp" compile="1" resource="0"
+            file="Source/DriveCompensate.cpp"/>
       <FILE id="LlEeFc" name="InitSliders.cpp" compile="1" resource="0" file="Source/InitSliders.cpp"/>
     </GROUP>
     <GROUP id="{E0FCBD58-8D8D-89D0-2D6B-B2FCF0024865}" name="Window">

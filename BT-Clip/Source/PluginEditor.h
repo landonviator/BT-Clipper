@@ -20,7 +20,7 @@
 //==============================================================================
 /**
 */
-class BTClipAudioProcessorEditor  : public juce::AudioProcessorEditor
+class BTClipAudioProcessorEditor  : public juce::AudioProcessorEditor, public juce::Slider::Listener
 {
 public:
     BTClipAudioProcessorEditor (BTClipAudioProcessor&);
@@ -29,6 +29,7 @@ public:
     //==============================================================================
     void paint (juce::Graphics&) override;
     void resized() override;
+    void sliderValueChanged(juce::Slider* slider) override;
 
 private:
 
@@ -48,9 +49,10 @@ private:
     juce::LV_Dial m_MidToneGain {" dB", -10.0, 10.0, 0.25, 0.0};
     juce::LV_Dial m_DriveDial {" dB", 0.0, 32.0, 0.25, 0.0};
     std::vector<juce::Slider*> sliders {&m_CutoffDial, &m_MidToneGain, &m_DriveDial};
+    juce::LV_AlphaDialLAF customDial;
     void init_dials();
     void set_dial_props();
-    juce::LV_AlphaDialLAF customDial;
+    void drive_compensation();
     
     /**Slider attachments*/
     std::unique_ptr <juce::AudioProcessorValueTreeState::SliderAttachment> inputSliderAttach, outputSliderAttach, cutoffSliderAttach,

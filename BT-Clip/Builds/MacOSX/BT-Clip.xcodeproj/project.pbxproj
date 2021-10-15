@@ -70,6 +70,7 @@
 		AFE2F119852CC8E2D837AB45 /* PrepareMidTone.cpp */ = {isa = PBXBuildFile; fileRef = FB3215DB3A73553E9322B815; };
 		B4001EA427B3EF2B7847473A /* InitLabels.cpp */ = {isa = PBXBuildFile; fileRef = 038E3B825A48E20DA9E79FDB; };
 		B9A1EBA8CAAB8E4CF8060B19 /* PrepareClipper.cpp */ = {isa = PBXBuildFile; fileRef = 2A109C35D036D8D7BD951779; };
+		C2B4138FBA087FA6A988100E /* DriveCompensate.cpp */ = {isa = PBXBuildFile; fileRef = 6EA384F63210D9FE8F84EF4B; };
 		C3B2A889C16C190ACDBAEC19 /* QuartzCore.framework */ = {isa = PBXBuildFile; fileRef = F27599868A7FC86756C2DF84; };
 		C9BFDE115AB14B5A4E045D65 /* CreateParams.cpp */ = {isa = PBXBuildFile; fileRef = 25DFF69BAF333FD8B439FE0B; };
 		CC017B05D51903EA8EEC7AD6 /* Shared Code */ = {isa = PBXBuildFile; fileRef = CDC88096261FE569E6956AF9; };
@@ -136,6 +137,7 @@
 		6BE64FD69331A580A6E3EA8B /* PluginProcessor.cpp */ /* PluginProcessor.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = PluginProcessor.cpp; path = ../../Source/PluginProcessor.cpp; sourceTree = SOURCE_ROOT; };
 		6CF22B22FE75B86D69474811 /* InitSliders.cpp */ /* InitSliders.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = InitSliders.cpp; path = ../../Source/InitSliders.cpp; sourceTree = SOURCE_ROOT; };
 		6CF6FE6AABAE327B6F359D59 /* include_juce_audio_utils.mm */ /* include_juce_audio_utils.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = include_juce_audio_utils.mm; path = ../../JuceLibraryCode/include_juce_audio_utils.mm; sourceTree = SOURCE_ROOT; };
+		6EA384F63210D9FE8F84EF4B /* DriveCompensate.cpp */ /* DriveCompensate.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = DriveCompensate.cpp; path = ../../Source/DriveCompensate.cpp; sourceTree = SOURCE_ROOT; };
 		71571682C6E82C11AD55AC81 /* JuceHeader.h */ /* JuceHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = JuceHeader.h; path = ../../JuceLibraryCode/JuceHeader.h; sourceTree = SOURCE_ROOT; };
 		718FE9D2A63ADB1A191F8D96 /* BinaryData.cpp */ /* BinaryData.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = BinaryData.cpp; path = ../../JuceLibraryCode/BinaryData.cpp; sourceTree = SOURCE_ROOT; };
 		791E684D1CB7EE5FFBA8684B /* AU */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "BT-Clip.component"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -426,6 +428,7 @@
 			isa = PBXGroup;
 			children = (
 				60FCFEDF64249E0FBDD9B652,
+				6EA384F63210D9FE8F84EF4B,
 				6CF22B22FE75B86D69474811,
 			);
 			name = Sliders;
@@ -808,6 +811,7 @@
 				FDB9E99C87FD4BB9619FBF4F,
 				B4001EA427B3EF2B7847473A,
 				88468B5CA8BC85FD77DD3640,
+				C2B4138FBA087FA6A988100E,
 				01F9A42AD670CC22CF262067,
 				5AE98B68E5EAEA1AA71BBA50,
 				50D08BE4D2CE4F1F035A6D74,
