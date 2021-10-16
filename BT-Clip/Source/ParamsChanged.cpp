@@ -50,49 +50,20 @@ void BTClipAudioProcessor::parameterChanged(const juce::String &parameterID, flo
     if (parameterID == driveModelId)
     {
         m_Drive_Type = newValue;
+        
         if (newValue == 0)
         {
             m_ClippersModule.set_clipping_type(LV_Clippers::ClippingType::kHardClip);
-
-//            if (m_Drive <= 24.0)
-//            {
-//                treeState.getParameterAsValue(outputSliderId) = -m_Drive;
-//            }
-//
-//            else
-//            {
-//                treeState.getParameterAsValue(outputSliderId) = -24.0;
-//            }
         }
 
         else if (newValue == 1)
         {
             m_ClippersModule.set_clipping_type(LV_Clippers::ClippingType::kSoftClip);
-
-//            if (m_Drive <= 26.0)
-//            {
-//                treeState.getParameterAsValue(outputSliderId) = -m_Drive;
-//            }
-//
-//            else
-//            {
-//                treeState.getParameterAsValue(outputSliderId) = -26.0;
-//            }
         }
 
         else
         {
             m_ClippersModule.set_clipping_type(LV_Clippers::ClippingType::kAnalog);
-
-//            if (m_Drive <= 28.0)
-//            {
-//                treeState.getParameterAsValue(outputSliderId) = -m_Drive;
-//            }
-//
-//            else
-//            {
-//                treeState.getParameterAsValue(outputSliderId) = -28.0;
-//            }
         }
     }
 }
