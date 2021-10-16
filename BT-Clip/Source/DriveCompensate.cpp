@@ -12,6 +12,13 @@
 
 void BTClipAudioProcessorEditor::drive_compensation()
 {
+    if (m_ClipMenu.getSelectedId() > 1)
+    {
+        m_OutputSlider.setValue(m_DriveDial.getValue() * -0.375);
+    }
     
-    m_OutputSlider.setValue(m_DriveDial.getValue() * -0.56);
+    else
+    {
+        m_OutputSlider.setValue(m_DriveDial.getValue() * -0.3125);
+    }
 }
