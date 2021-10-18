@@ -2,7 +2,7 @@
 
 <JUCERPROJECT id="b2Pl57" name="BT-Clip" projectType="audioplug" useAppConfig="0"
               addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1" companyName="Viator DSP"
-              pluginName="BT Clip">
+              pluginName="BT Clip" version="1.3.0">
   <MAINGROUP id="Yz13QN" name="BT-Clip">
     <GROUP id="{49ACD2A4-E683-92F4-B31E-0F2EFB399A70}" name="DSPModules">
       <FILE id="q6QAtg" name="MainDSPLoop.cpp" compile="1" resource="0" file="Source/MainDSPLoop.cpp"/>
