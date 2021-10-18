@@ -36,7 +36,10 @@ float LV_Clippers::processSample(float input)
     {
         case ClippingType::kHardClip:
         {
-            input *= drive;
+            float rawDrive = 20.0f * std::log10(drive);
+            auto driver = juce::jmap(rawDrive, 0.0f, 32.0f, 0.0f, 16.0f) + 2.0;
+            
+            input *= driver;
             
             // Hard clipper
             if (input >= thresh)
@@ -54,27 +57,34 @@ float LV_Clippers::processSample(float input)
                 output = input;
             }
             
+            output *= 0.5;
+            
         } break;
             
         case ClippingType::kSoftClip:
         {
+            float rawDrive = 20.0f * std::log10(drive);
+            auto driver = juce::jmap(rawDrive, 0.0f, 32.0f, 0.0f, 16.0f) + 1.0;
+            
             // Exponential Distortion
             if (input >= 0.0)
             {
-                output = 1.0 - exp(-abs(drive * input));
+                output = 1.0 - exp(-abs(driver * input));
             }
                     
             else
             {
-                output = -1.0 * (1.0 - exp(-abs(drive * input)));
+                output = -1.0 * (1.0 - exp(-abs(std::pow(10.0, driver * 0.05) * input)));
             }
             
         } break;
             
         case ClippingType::kAnalog:
         {
-            output = tanh((-drive - 1.0) * input + input) - tanh(pow(input, 3.0f));
-            output *= 0.65;
+            float rawDrive = 20.0f * std::log10(drive);
+            auto driver = juce::jmap(rawDrive, 0.0f, 32.0f, 0.0f, 18.0f) + 2.0;
+            output = tanh((-driver - 1.0) * input + input) - tanh(pow(input, 3.0f));
+            output *= 0.5;
             
         } break;
     }

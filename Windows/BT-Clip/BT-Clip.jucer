@@ -2,7 +2,7 @@
 
 <JUCERPROJECT id="boZNRF" name="BT-Clip" projectType="audioplug" useAppConfig="0"
               addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1" companyName="Viator DSP"
-              pluginFormats="buildVST3" pluginName="BT Clipper">
+              pluginFormats="buildVST3" pluginName="BT Clipper" version="1.3.0">
   <MAINGROUP id="phRalq" name="BT-Clip">
     <GROUP id="{D98B2D82-E0D7-64A3-D6FB-A476BF9481BE}" name="Source">
       <GROUP id="{32E07FE6-F377-0B50-FA62-3642D5EC6E3C}" name="Assets">
