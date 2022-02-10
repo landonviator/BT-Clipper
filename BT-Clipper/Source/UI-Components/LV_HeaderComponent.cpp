@@ -16,17 +16,15 @@ LV_HeaderComponent::LV_HeaderComponent(juce::AudioProcessorValueTreeState& tree)
 {
     using ComboBoxAttachment = juce::AudioProcessorValueTreeState::ComboBoxAttachment;
     
+    oversamplingMenu.addItem("No OS", 1);
+    oversamplingMenu.addItem("8X OS", 2);
     oversamplingMenuAttach = std::make_unique<ComboBoxAttachment>(tree, qualityID, oversamplingMenu);
-    oversamplingMenu.setTextWhenNothingSelected("Quality");
-    oversamplingMenu.addItem("Normal Quality", 1);
-    oversamplingMenu.addItem("High Quality", 2);
     addAndMakeVisible(oversamplingMenu);
     
+    clipTypeMenu.addItem("Hard Cip", 1);
+    clipTypeMenu.addItem("Soft Clip", 2);
+    clipTypeMenu.addItem("Analog Clip", 3);
     clipTypeMenuAttach = std::make_unique<ComboBoxAttachment>(tree, clipTypeID, clipTypeMenu);
-    clipTypeMenu.setTextWhenNothingSelected("Clip Type");
-    clipTypeMenu.addItem("Hard", 1);
-    clipTypeMenu.addItem("Soft", 2);
-    clipTypeMenu.addItem("Analog", 3);
     addAndMakeVisible(clipTypeMenu);
 }
 

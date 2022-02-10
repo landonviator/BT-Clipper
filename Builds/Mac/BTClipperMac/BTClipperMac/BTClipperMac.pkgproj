@@ -79,7 +79,7 @@
 															<key>GID</key>
 															<integer>0</integer>
 															<key>PATH</key>
-															<string>/Users/land00m/Documents/GitHub/BT-Clipper/Builds/Mac/BTClipperMac/BTClipperMac/BT-Clip.component</string>
+															<string>/Users/land00m/Documents/GitHub/just-a-filter/Builds/Mac/Just a Filter.component</string>
 															<key>PATH_TYPE</key>
 															<integer>0</integer>
 															<key>PERMISSIONS</key>
@@ -518,7 +518,7 @@
 				<key>FOLLOW_SYMBOLIC_LINKS</key>
 				<false/>
 				<key>IDENTIFIER</key>
-				<string>com.ViatorDSP.pkg.BT-Clipper-Mac-AU-v1.3.0</string>
+				<string>com.ViatorDSP.pkg.BT-Clipper-Mac-AU-v1.4.0</string>
 				<key>LOCATION</key>
 				<integer>0</integer>
 				<key>NAME</key>
@@ -534,7 +534,7 @@
 				<key>USE_HFS+_COMPRESSION</key>
 				<false/>
 				<key>VERSION</key>
-				<string>1.3.0</string>
+				<string>1.4.0</string>
 			</dict>
 			<key>TYPE</key>
 			<integer>0</integer>
@@ -616,7 +616,7 @@
 															<key>GID</key>
 															<integer>0</integer>
 															<key>PATH</key>
-															<string>/Users/land00m/Documents/GitHub/BT-Clipper/Builds/Mac/BTClipperMac/BTClipperMac/BT-Clip.vst3</string>
+															<string>/Users/land00m/Documents/GitHub/just-a-filter/Builds/Mac/Just a Filter.vst3</string>
 															<key>PATH_TYPE</key>
 															<integer>0</integer>
 															<key>PERMISSIONS</key>
@@ -1055,7 +1055,7 @@
 				<key>FOLLOW_SYMBOLIC_LINKS</key>
 				<false/>
 				<key>IDENTIFIER</key>
-				<string>com.ViatorDSP.pkg.BT-Clipper-Mac-VST3-v1.3.0</string>
+				<string>com.ViatorDSP.pkg.BT-Clipper-Mac-VST3-v1.4.0</string>
 				<key>LOCATION</key>
 				<integer>0</integer>
 				<key>NAME</key>
@@ -1071,7 +1071,7 @@
 				<key>USE_HFS+_COMPRESSION</key>
 				<false/>
 				<key>VERSION</key>
-				<string>1.3.0</string>
+				<string>1.4.0</string>
 			</dict>
 			<key>TYPE</key>
 			<integer>0</integer>

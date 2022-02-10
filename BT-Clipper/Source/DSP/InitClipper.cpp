@@ -20,8 +20,8 @@ void BTClipperAudioProcessor::initClipper()
     
     switch (static_cast<int>(*treeState.getRawParameterValue(clipTypeID)))
     {
-        case 1: clipperModule.setClipperType(LV_Clipper::ClipperTypeId::kHardClipper); break;
-        case 2: clipperModule.setClipperType(LV_Clipper::ClipperTypeId::kSoftClipper); break;
-        case 3: clipperModule.setClipperType(LV_Clipper::ClipperTypeId::kAnalogClipper); break;
+        case 0: clipperModule.setClipperType(LV_Clipper::ClipperTypeId::kHardClipper); break;
+        case 1: clipperModule.setClipperType(LV_Clipper::ClipperTypeId::kSoftClipper); break;
+        case 2: clipperModule.setClipperType(LV_Clipper::ClipperTypeId::kAnalogClipper); break;
     }
 }

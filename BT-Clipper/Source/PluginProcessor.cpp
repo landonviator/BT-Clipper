@@ -26,7 +26,7 @@ oversamplingModule(2, 3, juce::dsp::Oversampling<float>::FilterType::filterHalfB
 {
     scopeModule.setBufferSize(256);
     scopeModule.setSamplesPerBlock(256);
-    scopeModule.setRepaintRate(32);
+    scopeModule.setRepaintRate(1024);
     
     treeState.addParameterListener (driveID, this);
     treeState.addParameterListener (outputID, this);
@@ -75,8 +75,8 @@ juce::AudioProcessorValueTreeState::ParameterLayout BTClipperAudioProcessor::cre
 
   auto pDrive = std::make_unique<juce::AudioParameterFloat>(driveID, driveName, 0.0, 24.0, 0.0);
   auto pOutput = std::make_unique<juce::AudioParameterFloat>(outputID, outputName, 0.0, 100.0, 100.0);
-  auto pQuality = std::make_unique<juce::AudioParameterInt>(qualityID, qualityName, 1, 2, 1);
-  auto pClipType = std::make_unique<juce::AudioParameterInt>(clipTypeID, clipTypeName, 1, 3, 1);
+  auto pQuality = std::make_unique<juce::AudioParameterInt>(qualityID, qualityName, 0, 1, 0);
+  auto pClipType = std::make_unique<juce::AudioParameterInt>(clipTypeID, clipTypeName, 0, 2, 0);
   auto pCeiling = std::make_unique<juce::AudioParameterFloat>(ceilingID, ceilingName, -60.0, 0.0, 0.0);
   auto pTrim = std::make_unique<juce::AudioParameterFloat>(trimID, trimName, -96.0, 24.0, 0.0);
   auto pMix = std::make_unique<juce::AudioParameterFloat>(mixID, mixName, 0.0, 100.0, 100.0);
@@ -144,9 +144,9 @@ void BTClipperAudioProcessor::parameterChanged(const juce::String &parameterID, 
         
         switch (static_cast<int>(clipTypeChoice))
         {
-            case 1: clipperModule.setClipperType(LV_Clipper::ClipperTypeId::kHardClipper); break;
-            case 2: clipperModule.setClipperType(LV_Clipper::ClipperTypeId::kSoftClipper); break;
-            case 3: clipperModule.setClipperType(LV_Clipper::ClipperTypeId::kAnalogClipper); break;
+            case 0: clipperModule.setClipperType(LV_Clipper::ClipperTypeId::kHardClipper); break;
+            case 1: clipperModule.setClipperType(LV_Clipper::ClipperTypeId::kSoftClipper); break;
+            case 2: clipperModule.setClipperType(LV_Clipper::ClipperTypeId::kAnalogClipper); break;
         }
     }
     
@@ -197,7 +197,7 @@ void BTClipperAudioProcessor::parameterChanged(const juce::String &parameterID, 
     /** Oversampling */
     if (parameterID == qualityID)
     {
-        if (newValue - 1 == 0)
+        if (newValue == 0)
         {
             oversamplingState = false;
             overSampleRate = getSampleRate();
@@ -281,7 +281,7 @@ void BTClipperAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBl
     spec.sampleRate = sampleRate;
     spec.numChannels = getTotalNumOutputChannels();
     
-    oversamplingState = *treeState.getRawParameterValue(qualityID) - 1;
+    oversamplingState = *treeState.getRawParameterValue(qualityID);
 
     if (oversamplingState)
     {
@@ -418,7 +418,7 @@ void BTClipperAudioProcessor::setStateInformation (const void* data, int sizeInB
         // Post Tone
         initPostTone();
         
-        oversamplingState = *treeState.getRawParameterValue(qualityID) - 1;
+        oversamplingState = *treeState.getRawParameterValue(qualityID);
     }
     
 }
